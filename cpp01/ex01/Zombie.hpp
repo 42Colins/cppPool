@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 17:36:43 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/23 17:43:17 by cprojean         ###   ########.fr       */
+/*   Created: 2023/11/22 16:59:28 by cprojean          #+#    #+#             */
+/*   Updated: 2023/11/23 19:39:21 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "newZombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main() 
+# include <iostream>
+
+class Zombie 
 {
-    
-    Zombie *John = newZombie("John");
-    randomChump("Jane");
-    John->annouce();
-    
-    delete John;
-    
-}
+	private :
+		std::string name;
+
+	public :
+
+		Zombie( void );
+		Zombie(std::string name);
+		~Zombie( void );
+		
+		void setName( std::string name );
+		void announce( void );
+};
+
+Zombie	*zombieHorde( int N, std::string name );
+
+#endif

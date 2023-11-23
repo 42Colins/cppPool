@@ -5,23 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/22 16:57:23 by cprojean          #+#    #+#              #
-#    Updated: 2023/11/23 19:25:41 by cprojean         ###   ########.fr        #
+#    Created: 2023/11/23 18:44:17 by cprojean          #+#    #+#              #
+#    Updated: 2023/11/23 19:25:22 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BrrrrrrrrrraaaaaaaaaaaaaaaaaaiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnnzzzzzzZZZZZZZZZZZZZZZZZZZZ
+NAME = MoreBrrrrrrrrrraaaaaaaaaaaaaaaaaaiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnnzzzzzzZZZZZZZZZZZZZZZZZZZZ
 
 CPP	 =	c++ -std=c++98
 
 SRCS = 		Zombie.cpp		\
-			newZombie.cpp	\
-			main.cpp		\
-			randomChump.cpp	
+			zombieHorde.cpp	\
+			main.cpp		
 
-HEADER = 	Zombie.hpp		\
-			newZombie.hpp	\
-			randomChump.hpp	
+HEADER = 	Zombie.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -29,11 +26,11 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-%.o: $(DIR_SRCS)%.cpp $(HEADER) 
+%.o: $(DIR_SRCS)%.cpp $(HEADER)
 	$(CPP) $(CPPFLAGS) -I ./ -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean : 
 	rm -rf $(OBJS)

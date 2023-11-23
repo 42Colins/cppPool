@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 17:36:43 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/23 17:43:17 by cprojean         ###   ########.fr       */
+/*   Created: 2023/11/23 18:46:59 by cprojean          #+#    #+#             */
+/*   Updated: 2023/11/23 19:15:40 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "newZombie.hpp"
+#include "Zombie.hpp"
 
-int main() 
+int	main() 
 {
-    
-    Zombie *John = newZombie("John");
-    randomChump("Jane");
-    John->annouce();
-    
-    delete John;
-    
+
+	Zombie *zombArr;
+	zombArr = zombieHorde(10, "Zombar");
+
+	delete[] zombArr;
+
 }

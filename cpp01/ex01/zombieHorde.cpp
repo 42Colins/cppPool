@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 17:36:43 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/23 17:43:17 by cprojean         ###   ########.fr       */
+/*   Created: 2023/11/23 18:47:01 by cprojean          #+#    #+#             */
+/*   Updated: 2023/11/23 19:39:42 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "newZombie.hpp"
+#include "Zombie.hpp"
 
-int main() 
+Zombie	*zombieHorde( int N, std::string name )
 {
-    
-    Zombie *John = newZombie("John");
-    randomChump("Jane");
-    John->annouce();
-    
-    delete John;
-    
+
+	Zombie *zombArr;
+
+	zombArr = new Zombie[N];
+
+	for (int i = 0; i < N; i++)
+	{
+		zombArr[i].setName(name);
+		zombArr[i].announce();
+	}
+	return (zombArr);
+
 }
