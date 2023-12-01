@@ -35,14 +35,15 @@ void	Sed::sed_this( void )
 	std::string	newFile;
 	std::string	replace;
 	std::fstream	fd;
+	std::fstream	fdout;
 	newFile = _fileName + ".replace";
 	fd.open(_fileName.c_str(), std::fstream::in);
 	std::getline(fd, this->_string);
-	// std::cout << _string << std::endl;
-	// fd.open(newFile.c_str(), std::fstream::out);
-	while (!_string.empty())
+	fdout.open(newFile.c_str(), std::fstream::out);
+	while (!fd.eof())
 	{
-		findAndReplace(replace, _string, this->_toFind, _toReplace);
+		_string = findAndReplace(replace, _string, this->_toFind, _toReplace);
+		fdout << _string << std::endl;
 		std::getline(fd, this->_string);
 	}
 
@@ -51,46 +52,18 @@ void	Sed::sed_this( void )
 std::string	findAndReplace( std::string returned, std::string find, std::string toFind, std::string toReplace)
 {
 
-	size_t	pos = 0;
 	size_t	index = 0;
-	size_t	jdex = 0;
-	pos = find.find(toFind);
-	// std::cout << pos << std::endl;
-	if (pos >= 0)
+	while (find[index])
 	{
-		while (find[index])
+		if ((find.substr(index).find(toFind) == 0))
 		{
-			if (index < pos)
-			{
-				returned.push_back(find[index]);
-				index++;
-				jdex++;
-			}
-			else if (index == pos)
-			{
-				for(size_t i = 0; i < toReplace.length(); i++)
-				{
-					returned.push_back(toReplace[i]);
-					index++;
-				}
-				jdex += toFind.length();
-			}
-			else if (index > pos)
-			{
-				returned.push_back(find[jdex]);
-				std::string	copy;
-				copy = &find[jdex];
-				pos = copy.find(toFind) + jdex;
-				if (pos == jdex - 1)
-					pos = 0;
-				jdex++;
-				index++;
-			}
+			for(size_t	i = 0; i < toReplace.length(); i++)
+				returned.push_back(toReplace[i]);
+			index += toFind.length() - 1;
 		}
+		else
+			returned.push_back(find[index]);
+		index++;
 	}
-	pos = returned.find(toFind);
-	if (pos )
-	std::cout << returned << std::endl;
 	return (returned);
-
 }
