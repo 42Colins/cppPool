@@ -5,23 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/22 16:57:23 by cprojean          #+#    #+#              #
-#    Updated: 2023/11/24 11:36:11 by cprojean         ###   ########.fr        #
+#    Created: 2023/11/23 18:44:17 by cprojean          #+#    #+#              #
+#    Updated: 2023/11/24 16:59:24 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BrrrrrrrrrraaaaaaaaaaaaaaaaaaiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnnzzzzzzZZZZZZZZZZZZZZZZZZZZ
+NAME = UnnecessaryViolence
 
 CPP	 =	c++ -std=c++98
 
-SRCS = 		Zombie.cpp		\
-			newZombie.cpp	\
-			main.cpp		\
-			randomChump.cpp	
+SRCS = 		HumanA.cpp		\
+			HumanB.cpp		\
+			Weapon.cpp		\
+			main.cpp		
 
-HEADER = 	Zombie.hpp		\
-			newZombie.hpp	\
-			randomChump.hpp	
+HEADER = 	HumanA.hpp		\
+			HumanB.hpp		\
+			Weapon.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -29,7 +29,7 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-%.o: $(DIR_SRCS)%.cpp $(HEADER) 
+%.o: $(DIR_SRCS)%.cpp $(HEADER)
 	$(CPP) $(CPPFLAGS) -I ./ -c $< -o $@
 
 $(NAME): $(OBJS)

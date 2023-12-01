@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 16:59:28 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/24 10:56:38 by cprojean         ###   ########.fr       */
+/*   Created: 2023/11/24 10:16:51 by cprojean          #+#    #+#             */
+/*   Updated: 2023/11/24 12:11:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include <iostream>
 
-# include <iostream>
-
-class Zombie 
+int	main()
 {
-    private :
-	    std::string name;
-    
-    public :
 
-	    Zombie( void );
-	    Zombie(std::string name);
-	    ~Zombie( void );
-	    
-	    void setName( std::string name );
-	    void annouce( void );
-};
+	std::string	array = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &array;
+	std::string	&stringREF = array;
 
-#endif
+	std::cout << &array << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	std::cout << std::endl;
+
+	std::cout << array << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+
+}

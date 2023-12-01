@@ -5,32 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/22 16:57:23 by cprojean          #+#    #+#              #
-#    Updated: 2023/11/24 11:36:11 by cprojean         ###   ########.fr        #
+#    Created: 2023/11/23 18:44:17 by cprojean          #+#    #+#              #
+#    Updated: 2023/11/24 11:36:21 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BrrrrrrrrrraaaaaaaaaaaaaaaaaaiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnnzzzzzzZZZZZZZZZZZZZZZZZZZZ
 
-CPP	 =	c++ -std=c++98
+NAME		=	Braindead
 
-SRCS = 		Zombie.cpp		\
-			newZombie.cpp	\
-			main.cpp		\
-			randomChump.cpp	
+CPP			=	c++ -std=c++98
 
-HEADER = 	Zombie.hpp		\
-			newZombie.hpp	\
-			randomChump.hpp	
+SRCS		=		main.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJS		=	$(SRCS:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS	=	-Wall -Wextra -Werror -I ./
 
 all : $(NAME)
 
-%.o: $(DIR_SRCS)%.cpp $(HEADER) 
-	$(CPP) $(CPPFLAGS) -I ./ -c $< -o $@
+%.o: $(DIR_SRCS)%.cpp
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)

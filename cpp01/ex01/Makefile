@@ -6,7 +6,7 @@
 #    By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:44:17 by cprojean          #+#    #+#              #
-#    Updated: 2023/11/23 19:25:22 by cprojean         ###   ########.fr        #
+#    Updated: 2023/11/24 10:16:43 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all : $(NAME)
 	$(CPP) $(CPPFLAGS) -I ./ -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean : 
 	rm -rf $(OBJS)

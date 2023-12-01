@@ -55,7 +55,7 @@ std::string	findAndReplace( std::string returned, std::string find, std::string 
 	size_t	index = 0;
 	size_t	jdex = 0;
 	pos = find.find(toFind);
-	std::cout << pos << std::endl;
+	// std::cout << pos << std::endl;
 	if (pos >= 0)
 	{
 		while (find[index])
@@ -68,7 +68,7 @@ std::string	findAndReplace( std::string returned, std::string find, std::string 
 			}
 			else if (index == pos)
 			{
-				for(size_t	i = 0; i < toReplace.length(); i++)
+				for(size_t i = 0; i < toReplace.length(); i++)
 				{
 					returned.push_back(toReplace[i]);
 					index++;
@@ -77,8 +77,14 @@ std::string	findAndReplace( std::string returned, std::string find, std::string 
 			}
 			else if (index > pos)
 			{
-				findAndReplace(returned, find, toFind, toReplace);
-				break ;
+				returned.push_back(find[jdex]);
+				std::string	copy;
+				copy = &find[jdex];
+				pos = copy.find(toFind) + jdex;
+				if (pos == jdex - 1)
+					pos = 0;
+				jdex++;
+				index++;
 			}
 		}
 	}

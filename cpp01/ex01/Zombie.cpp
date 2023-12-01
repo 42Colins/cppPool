@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:02:33 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/23 19:39:16 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:25:50 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    Zombie::announce ( void )
 
 void    Zombie::setName( std::string name )
 {
-	
-	this->name = name;   
+
+	this->name = name;
 
 }
