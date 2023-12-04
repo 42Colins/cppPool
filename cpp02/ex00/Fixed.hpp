@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 16:37:25 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 17:32:36 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/04 15:26:54 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include <iostream>
-#include <string.h>
-#include <algorithm>
-
-class Harl
+class Fixed
 {
 	private :
-				void	debug( void );
-				void	info( void );
-				void	warning( void );
-				void	error( void );
+		int	_value;
+		static const int _bits;
 
 	public :
-				Harl( void );
-				~Harl( void );
-				void complain ( std::string level );
-				void get_debug( void );
-				void get_info( void );
-				void get_warning( void );
-				void get_error( void );
-};
-
+		Fixed( void );
+		~Fixed( void );
+		Fixed( Fixed toCopy );
+		int	getRawBits( void ) const;
+		void	setRawBits( int const raw );
+		void	operator=(const Fixed &);
+}
 
 #endif

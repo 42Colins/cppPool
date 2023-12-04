@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:39:52 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 13:50:14 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:39:37 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,26 @@ void Harl::get_error( void )
 void	Harl::complain( std::string level )
 {
 
-	if (level == "Debug" || level == "DEBUG" || level == "debug")
-		this->get_debug();
-	if (level == "Info" || level == "INFO" || level == "info")
-		this->get_info();
-	if (level == "Warning" || level == "WARNING" || level == "warning")
-		this->get_warning();
-	if (level == "Error" || level == "ERROR" || level == "error")
-		this->get_error();
+	std::transform(level.begin(), level.end(), level.begin(), toupper);
+	int	value = 4;
+	std::string	array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (array[i] == level)
+			value = i;
+	}
+	switch (value)
+	{
+		case 0:
+			this->get_debug(); break ;
+		case 1:
+			this->get_info(); break ;
+		case 2:
+			this->get_warning(); break ;
+		case 3:
+			this->get_error(); break ;
+		default:
+			std::cout << "Bad input !" << std::endl; break ;
+	}
 
 }

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:43:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 14:14:19 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:43:33 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,16 @@ void	Sed::sed_this( void )
 		std::cout << "Error while opening the file" << std::endl;
 		return ;
 	}
-	std::getline(fd, this->_string);
 	fdout.open(newFile.c_str(), std::fstream::out);
 	while (!fd.eof())
 	{
-		_string = findAndReplace(replace, _string, this->_toFind, _toReplace);
-		fdout << _string << std::endl;
 		std::getline(fd, this->_string);
+		_string = findAndReplace(replace, _string, this->_toFind, _toReplace);
+		if (fd.eof())
+			fdout << _string;
+		else
+			fdout << _string << std::endl;
 	}
-
 }
 
 std::string	findAndReplace( std::string returned, std::string find, std::string toFind, std::string toReplace)
