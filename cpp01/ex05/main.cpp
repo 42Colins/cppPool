@@ -5,34 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 14:43:48 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 14:19:07 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/01 16:48:37 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/04 13:49:41 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char **argv )
 {
-
-	if (argc != 4)
+	if (argc != 2)
 	{
-		std::cout << "Error, must be 3 args !" << std::endl;
-		return(-1);
-	}
-	std::string verif = argv[1];
-	std::string verif2 = argv[2];
-	std::string verif3 = argv[3];
-	if (verif.empty() || verif2.empty() || verif3.empty())
-	{
-		std::cout << "Bad input !" << std::endl;
-		return (-1);
+		std::cout << "Must enter Debug, Info, Warning or Error !" << std::endl;
+		return (0);
 	}
 
-	Sed	toDo(argv);
-
-	toDo.sed_this();
+	Harl ajakubcz;
+	std::string level = argv[1];
+	ajakubcz.complain( level );
 	return (0);
 
 }
-

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:43:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/30 18:54:50 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:14:19 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void	Sed::sed_this( void )
 	std::fstream	fdout;
 	newFile = _fileName + ".replace";
 	fd.open(_fileName.c_str(), std::fstream::in);
+	if (fd.fail())
+	{
+		std::cout << "Error while opening the file" << std::endl;
+		return ;
+	}
 	std::getline(fd, this->_string);
 	fdout.open(newFile.c_str(), std::fstream::out);
 	while (!fd.eof())
