@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:53:20 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 15:00:42 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:58:27 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Fixed.hpp"
 
 int main( void )
 {
@@ -18,6 +18,7 @@ int main( void )
 	Fixed a;
 	Fixed b( a );
 	Fixed c;
+
 	c = b;
 
 	std::cout << a.getRawBits() << std::endl;
