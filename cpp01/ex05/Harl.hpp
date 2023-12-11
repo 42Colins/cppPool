@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:37:25 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/04 17:32:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 13:25:13 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ class Harl
 				Harl( void );
 				~Harl( void );
 				void complain ( std::string level );
-				void get_debug( void );
-				void get_info( void );
-				void get_warning( void );
-				void get_error( void );
 };
 
 

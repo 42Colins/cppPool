@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:55:02 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:21:17 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/10 17:39:26 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/11 16:22:12 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-int	main (void)
+#include <iostream>
+
+class ClapTrap
 {
 
-	ClapTrap clappy("Clappy");
-	clappy.attack("my grandmother");
-	clappy.takeDamage(5);
-	clappy.beRepaired(4);
-}
+	private :
+			int	_hp;
+			int	_ad;
+			int	_mana;
+			std::string _name;
+	
+	public :
+			ClapTrap( void );
+			ClapTrap( std::string name );
+			~ClapTrap( void );
+			void	attack( const std::string &target);
+			void	takeDamage(unsigned int amout);
+			void	beRepaired(unsigned int amout);
+			void	open( void );
+};
+
+
+#endif

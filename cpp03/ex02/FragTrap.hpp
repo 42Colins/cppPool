@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:55:02 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:21:17 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/11 15:59:56 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/11 16:13:37 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main (void)
+#include <iostream>
+#include <ScavTrap.hpp>
+
+class FragTrap : public ClapTrap
 {
+	private :
 
-	ClapTrap clappy("Clappy");
-	clappy.attack("my grandmother");
-	clappy.takeDamage(5);
-	clappy.beRepaired(4);
-}
+
+	public :
+			FragTrap( void );
+			FragTrap( std::string name );
+			~FragTrap( void );
+			void	highFiveGuys( void );
+};
+
+#endif

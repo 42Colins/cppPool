@@ -6,7 +6,7 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2023/12/10 17:36:46 by cprojean         ###   ########.fr        #
+#    Updated: 2023/12/11 16:19:31 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = Clappy
 CPP	 =	c++ -std=c++98 -g3
 
 SRCS =		main.cpp	\
-			Claptrap.cpp
+			ClapTrap.cpp
 
-HEADER =	Claptrap.hpp
+HEADER =	ClapTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Claptrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:39:26 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/10 17:57:54 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/10 17:55:02 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/11 16:12:01 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#include "FragTrap.hpp"
 
-#include <iostream>
-
-class Claptrap
+int	main (void)
 {
 
-	private :
-			int	_hp;
-			int	_ad;
-			int	_mana;
-	
-	public :
-			Claptrap( void );
-			~Claptrap( void );
-			void	attack( const std::string &target);
-			void	takeDamage(unsigned int amout);
-			void	beRepaired(unsigned int amout);
-			void	open( void );
-};
+	FragTrap fraggy("Fraggy");
+	fraggy.attack("clappy");
+	fraggy.highFiveGuys();
+	fraggy.beRepaired(10);
+	fraggy.takeDamage(15);
 
-
-#endif
+}

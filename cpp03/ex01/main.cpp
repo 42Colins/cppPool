@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:55:02 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:21:17 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 15:04:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main (void)
 {
 
-	ClapTrap clappy("Clappy");
-	clappy.attack("my grandmother");
-	clappy.takeDamage(5);
-	clappy.beRepaired(4);
+	ScavTrap scavvy("Scavvy");
+	scavvy.attack("clappy");
+	scavvy.guardGate();
+	scavvy.beRepaired(10);
+	scavvy.takeDamage(15);
+
 }
