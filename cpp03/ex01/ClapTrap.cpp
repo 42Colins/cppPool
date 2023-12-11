@@ -5,21 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:36:53 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:18:32 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/11 16:47:22 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/11 16:53:40 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string Name )
+ClapTrap::ClapTrap( std::string name )
 {
 
-	this->_name = Name;
+	this->_name = name;
 	this->_hp = 10;
 	this->_ad = 10;
 	this->_mana = 10;
-	std::cout << "Building " << Name << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "      DONE" << std::endl;
+	std::cout << "Building CL4PTP" << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "      DONE" << std::endl;
+	return ;
+
+}
+
+ClapTrap::ClapTrap( const ClapTrap &toCopy )
+{
+
+	*this = toCopy;
 	return ;
 
 }
@@ -27,6 +35,10 @@ ClapTrap::ClapTrap( std::string Name )
 ClapTrap::ClapTrap( void )
 {
 
+	this->_hp = 10;
+	this->_ad = 10;
+	this->_mana = 10;
+	std::cout << "Building CL4PTP" << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "      DONE" << std::endl;
 	return ;
 
 }
@@ -49,7 +61,7 @@ void	ClapTrap::open( void )
 void	ClapTrap::takeDamage( unsigned int amount )
 {
 
-	std::cout << "Clappy : " << this->_name << " gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
+	std::cout << "CL4PTP gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
 	this->_hp -= amount;
 
 }
@@ -57,7 +69,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 
-	std::cout << "Clappy : " << this->_name << " heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
+	std::cout << "CL4PTP heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
 	this->_hp += amount;
 	this->_mana -= 1;
 
@@ -66,7 +78,16 @@ void	ClapTrap::beRepaired( unsigned int amount )
 void	ClapTrap::attack( const std::string &target)
 {
 
-	std::cout << "Clappy : " << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
+	std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
 	this->_mana -= 1;
+
+}
+
+ClapTrap &	ClapTrap::operator=(const ClapTrap &src)
+{
+
+	std::cout << "Copy assignement operator called !" << std::endl;
+	*this = src;
+	return (*this);
 
 }

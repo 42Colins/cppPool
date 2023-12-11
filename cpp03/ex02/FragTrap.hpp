@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:59:56 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:13:37 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:50:31 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class FragTrap : public ClapTrap
 	public :
 			FragTrap( void );
 			FragTrap( std::string name );
+			FragTrap( const FragTrap &toCopy );
+			FragTrap &	operator=(const FragTrap &);
 			~FragTrap( void );
 			void	highFiveGuys( void );
 };

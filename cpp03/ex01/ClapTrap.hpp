@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:39:26 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:18:15 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:47:32 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@
 class ClapTrap
 {
 
-	protected :
-			std::string	_name;
+	private :
 			int	_hp;
 			int	_ad;
 			int	_mana;
+			std::string _name;
 	
 	public :
 			ClapTrap( void );
-			ClapTrap( std::string Name );
+			ClapTrap( std::string name );
 			~ClapTrap( void );
+			ClapTrap( const ClapTrap &toCopy );
+			ClapTrap &	operator=(const ClapTrap &);
 			void	attack( const std::string &target);
 			void	takeDamage(unsigned int amout);
 			void	beRepaired(unsigned int amout);

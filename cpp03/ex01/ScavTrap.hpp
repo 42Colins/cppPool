@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:18:56 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:48:32 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class ScavTrap : public ClapTrap
 	public :
 			ScavTrap( void );
 			ScavTrap( std::string Name );
+			ScavTrap( const ScavTrap &toCopy );
+			ScavTrap &	operator=(const ScavTrap &);
 			~ScavTrap( void );
 			void	attack( const std::string &target);
 			void	guardGate();

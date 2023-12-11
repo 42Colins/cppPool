@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:36:53 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:22:01 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:53:57 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ ClapTrap::ClapTrap( std::string name )
 	this->_ad = 10;
 	this->_mana = 10;
 	std::cout << "Building CL4PTP" << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "      DONE" << std::endl;
+	return ;
+
+}
+
+ClapTrap::ClapTrap( const ClapTrap &toCopy )
+{
+
+	*this = toCopy;
 	return ;
 
 }
@@ -72,5 +80,13 @@ void	ClapTrap::attack( const std::string &target)
 
 	std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
 	this->_mana -= 1;
+
+}
+
+ClapTrap &	ClapTrap::operator=(const ClapTrap &src)
+{
+
+	std::cout << "Copy assignement operator called !" << std::endl;
+	return (*this);
 
 }

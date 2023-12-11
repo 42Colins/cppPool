@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 15:55:03 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:49:34 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ ScavTrap::ScavTrap( std::string name )
 
 }
 
+ScavTrap::ScavTrap( const ScavTrap &toCopy)
+{
+
+	*this = toCopy;
+	return ;
+	
+}
+
 ScavTrap::~ScavTrap( void )
 {
 
@@ -49,5 +57,13 @@ void	ScavTrap::attack( const std::string &target )
 
 	std::cout << "Scavvy : " << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
 	this->_mana -= 1;
+
+}
+
+ScavTrap &	ClapTrap::operator=(const ScavTrap &src)
+{
+
+	std::cout << "Copy assignement operator called !" << std::endl;
+	return (*this);
 
 }
