@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:02:33 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/24 13:17:41 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:31:17 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Zombie::Zombie( std::string name)
 Zombie::~Zombie( void )
 {
 
-	std::cout << std::endl << "Destructor for Zombie called" << std::endl;
+	std::cout << std::endl << "Destructor for " << this->name << " called" << std::endl;
 
 }
 

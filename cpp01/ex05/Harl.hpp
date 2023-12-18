@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:37:25 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 13:25:13 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:50:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string.h>
-#include <algorithm>
 
 class Harl
 {
@@ -30,6 +29,5 @@ class Harl
 				~Harl( void );
 				void complain ( std::string level );
 };
-
 
 #endif

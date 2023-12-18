@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:39:52 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 13:43:04 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:51:20 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,15 @@ void	Harl::complain( std::string level )
 {
 
 	void (Harl::*ptr_array[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::transform(level.begin(), level.end(), level.begin(), toupper);
 	std::string	array[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	for (int i = 0; i < 4; i++)
 	{
 		if (array[i] == level)
 		{
 			(this->*ptr_array[i])();
-			break ;
+			return ;
 		}
 	}
+	std::cout << "Bad input, try again with DEBUG, INFO, WARNING or ERROR !" << std::endl;
 
 }
