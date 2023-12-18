@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:19:13 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/24 12:36:17 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:55:59 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ Weapon::~Weapon( void )
 
 }
 
-const std::string	*Weapon::getType( void )
+const std::string	&Weapon::getType( void )
 {
 
-	return (&this->_type);
+	return (this->_type);
 
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:16:29 by cprojean          #+#    #+#             */
-/*   Updated: 2023/11/24 16:56:09 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:55:23 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Weapon
 				Weapon( std::string );
 				~Weapon( void );
 
-				const std::string	*getType( void );
+				const std::string	&getType( void );
 				void				setType( std::string newType );
 
 };

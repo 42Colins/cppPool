@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:22:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 01:34:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:55:46 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	HumanB::attack( void )
 		std::cout << this->_name << " can't attack without a weapon !" << std::endl;
 		return ;
 	}
-	std::cout << this->_name << " attacks with " << *this->_type->getType() << std::endl;
+	std::cout << this->_name << " attacks with " << this->_type->getType() << std::endl;
 
 }
