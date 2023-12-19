@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 13:51:29 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/18 13:51:54 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include <iostream>
+#include "Polymorphism.h"
 
-class Fixed
+class WrongCat : public WrongAnimal
 {
 	private :
-		int	_value;
-		static const int	_bits = 8;
-
+	
 	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
+			WrongCat( void );
+			WrongCat( const WrongCat &toCopy );
+			~WrongCat( void );
+			WrongCat & operator=( const WrongCat & );
+			void	makeSound( void ) const ;
 };
+
 
 #endif

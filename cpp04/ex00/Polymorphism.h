@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Polymorphism.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 11:36:17 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/18 13:54:22 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef POLYMORPHISM_H
+# define POLYMORPHISM_H
 
 #include <iostream>
-
-class Fixed
-{
-	private :
-		int	_value;
-		static const int	_bits = 8;
-
-	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
-};
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 #endif

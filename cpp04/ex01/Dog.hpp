@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 11:33:12 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 13:16:25 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
+#include "Polymorphism.h"
 
-class Fixed
+class Dog : public Animal
 {
 	private :
-		int	_value;
-		static const int	_bits = 8;
-
+			Brain *_ideas;
 	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
+			Dog( void );
+			~Dog( void );
+			Dog( const Dog &toCopy );
+			Dog & operator=(const Dog &);
+			void	makeSound( void ) const;
+
 };
 
 #endif

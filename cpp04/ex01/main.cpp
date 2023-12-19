@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/17 16:00:09 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 14:42:28 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Polymorphism.h"
 
-#include <iostream>
-
-class Fixed
+int main()
 {
-	private :
-		int	_value;
-		static const int	_bits = 8;
-
-	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
-};
-
-#endif
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
+	return 0;
+}

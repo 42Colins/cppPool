@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cprojean <cprojean@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:03:35 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/07 13:52:56 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:21:35 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::_bits = 8;
 
 Fixed::Fixed( void )
 {

@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/19 11:26:10 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 13:42:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Polymorphism.h"
 
-#include <iostream>
-
-class Fixed
+Brain::Brain( void )
 {
-	private :
-		int	_value;
-		static const int	_bits = 8;
+	
+	std::cout << "My man is braining !" << std::endl;
 
-	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
-};
+}
 
-#endif
+Brain::Brain( const Brain &toCopy )
+{
+
+	*this = toCopy;
+
+}
+
+Brain::~Brain( void )
+{
+
+	std::cout << "My man is now braindead :/" << std::endl;
+
+}
+
+Brain	& Brain::operator=( const Brain &src )
+{
+	
+	for(int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = src._ideas[i];
+	}
+	return (*this);
+	
+}

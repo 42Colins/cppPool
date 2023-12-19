@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/17 15:57:45 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 13:14:44 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include <iostream>
+#include "Polymorphism.h"
 
-class Fixed
+class Animal 
 {
-	private :
-		int	_value;
-		static const int	_bits = 8;
+	protected :
+				std::string	_type;
 
 	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
+				Animal( void );
+				Animal( const Animal &toCopy );
+				virtual ~Animal( void );
+				Animal & operator=( const Animal & );
+
+				std::string	getType() const;
+				virtual void	makeSound( void ) const;
 };
 
 #endif

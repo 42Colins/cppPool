@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:06:06 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 16:22:25 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 13:52:53 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/18 13:53:38 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include <iostream>
+#include "Polymorphism.h"
 
-class Fixed
+class WrongAnimal 
 {
-	private :
-		int	_value;
-		static const int	_bits = 8;
+	protected :
+				std::string	_type;
 
 	public :
-		Fixed( void );
-		~Fixed( void );
-		Fixed(const Fixed &toCopy);
-		Fixed &	operator=(const Fixed &);
-		
-		int	getRawBits( void ) const;
-		void	setRawBits( int const raw );
+				WrongAnimal( void );
+				WrongAnimal( const WrongAnimal &toCopy );
+				~WrongAnimal( void );
+				WrongAnimal & operator=( const WrongAnimal & );
+
+				std::string	getType() const;
+				void	makeSound( void ) const;
 };
 
 #endif
