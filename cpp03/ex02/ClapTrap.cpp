@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:43:42 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:06:32 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,44 @@ void	ClapTrap::open( void )
 void	ClapTrap::takeDamage( unsigned int amount )
 {
 
-	std::cout << this->_name << " gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
-	this->_hp -= amount;
+	if (_hp > 0)
+	{
+		std::cout << "CL4PTP gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
+		this->_hp -= amount;
+	}
+	else
+		std::cout << "He's allready dead" << std::endl;
 
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 
-	std::cout << this->_name << " heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
-	this->_hp += amount;
-	this->_mana -= 1;
+	if (_mana > 0 && _hp > 0)
+	{
+		std::cout << "CL4PTP heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
+		this->_hp += amount;
+		this->_mana -= 1;
+	}
+	else if (_mana == 0)
+		std::cout << "Cannot repair myself without mana :()" << std::endl;
+	else if (_hp < 1)
+		std::cout << "I can't I'm dead u dumb or what" << std::endl;
 
 }
 
 void	ClapTrap::attack( const std::string &target)
 {
 
-	std::cout << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
-	this->_mana -= 1;
+	if (_mana > 0 && _hp > 0)
+	{
+		std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
+		this->_mana -= 1;
+	}
+	else if (_mana == 0)
+		std::cout << "Cannot attack without mana :()" << std::endl;
+	else if (_hp < 1)
+		std::cout << "I can't I'm dead u dumb or what" << std::endl;
 
 }
 

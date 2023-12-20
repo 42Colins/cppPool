@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:43:53 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:53:56 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ ScavTrap::~ScavTrap( void )
 void	ScavTrap::guardGate()
 {
 
-	std::cout << this->_name << "Scavvy is now a GUARDIAN !" << std::endl;
+	if (_hp > 0)
+		std::cout << this->_name << "Scavvy is now a GUARDIAN !" << std::endl;
+	else
+		std::cout << this->_name << "I can't I'm allready dead" << std::endl;
 
 }
 

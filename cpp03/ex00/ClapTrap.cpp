@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:36:53 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:53:57 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:06:10 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,44 @@ void	ClapTrap::open( void )
 void	ClapTrap::takeDamage( unsigned int amount )
 {
 
-	std::cout << "CL4PTP gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
-	this->_hp -= amount;
+	if (_hp > 0)
+	{
+		std::cout << "CL4PTP gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
+		this->_hp -= amount;
+	}
+	else
+		std::cout << "He's allready dead" << std::endl;
 
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 
-	std::cout << "CL4PTP heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
-	this->_hp += amount;
-	this->_mana -= 1;
+	if (_mana > 0 && _hp > 0)
+	{
+		std::cout << "CL4PTP heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
+		this->_hp += amount;
+		this->_mana -= 1;
+	}
+	else if (_mana == 0)
+		std::cout << "Cannot repair myself without mana :()" << std::endl;
+	else if (_hp < 1)
+		std::cout << "I can't I'm dead u dumb or what" << std::endl;
 
 }
 
 void	ClapTrap::attack( const std::string &target)
 {
 
-	std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
-	this->_mana -= 1;
+	if (_mana > 0 && _hp > 0)
+	{
+		std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
+		this->_mana -= 1;
+	}
+	else if (_mana == 0)
+		std::cout << "Cannot attack without mana :()" << std::endl;
+	else if (_hp < 1)
+		std::cout << "I can't I'm dead u dumb or what" << std::endl;
 
 }
 
@@ -87,6 +106,10 @@ ClapTrap &	ClapTrap::operator=(const ClapTrap &src)
 {
 
 	std::cout << "Copy assignement operator called !" << std::endl;
+	this->_name = src._name;
+	this->_ad = src._ad;
+	this->_hp = src._hp;
+	this->_mana = src._mana;
 	return (*this);
 
 }

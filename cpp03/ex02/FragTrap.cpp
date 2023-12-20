@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:07:13 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:44:49 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:58:52 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ FragTrap::~FragTrap( void )
 void	FragTrap::highFiveGuys( void )
 {
 
-	std::cout << "Do you wanna high five w/ me ????? pls" << std::endl;
+	if (_hp > 0)
+		std::cout << "Do you wanna high five w/ me ?????" << std::endl;
+	else
+		std::cout << "No I'm dead allready" << std::endl;
 
 }
 

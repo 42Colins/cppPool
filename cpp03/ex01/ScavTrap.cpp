@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:38:22 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:55:48 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap( std::string name )
 	this->_hp = 100;
 	this->_ad = 20;
 	this->_mana = 50;
-	std::cout << "Building " << this->_name << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "      DONE" << std::endl;
+	std::cout << "Building " << this->_name << std::endl << "   Setting AD" << std::endl << "   Setting HP" << std::endl << "  Setting MANA" << std::endl << "  ScavTrap DONE" << std::endl;
 	return ;
 
 }
@@ -48,7 +48,10 @@ ScavTrap::~ScavTrap( void )
 void	ScavTrap::guardGate()
 {
 
-	std::cout << this->_name << "Scavvy is now a GUARDIAN !" << std::endl;
+	if (_hp > 0)
+		std::cout << this->_name << "Scavvy is now a GUARDIAN !" << std::endl;
+	else
+		std::cout << this->_name << "I can't I'm allready dead" << std::endl;
 
 }
 
