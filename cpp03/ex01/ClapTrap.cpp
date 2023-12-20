@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:53:40 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:36:50 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ClapTrap::open( void )
 void	ClapTrap::takeDamage( unsigned int amount )
 {
 
-	std::cout << "CL4PTP gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
+	std::cout << this->_name << " gets hurt and goes from " << this->_hp << " to " << this->_hp - amount << " hp" << std::endl;
 	this->_hp -= amount;
 
 }
@@ -69,7 +69,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 
-	std::cout << "CL4PTP heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
+	std::cout << this->_name << " heals himself goes from " << this->_hp << " to " << this->_hp + amount << " hp" << std::endl;
 	this->_hp += amount;
 	this->_mana -= 1;
 
@@ -78,7 +78,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 void	ClapTrap::attack( const std::string &target)
 {
 
-	std::cout << "CL4PTP attacks and deals " << this->_ad << " damages to " << target << std::endl;
+	std::cout << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
 	this->_mana -= 1;
 
 }
@@ -87,7 +87,10 @@ ClapTrap &	ClapTrap::operator=(const ClapTrap &src)
 {
 
 	std::cout << "Copy assignement operator called !" << std::endl;
-	*this = src;
+	this->_name = src._name;
+	this->_ad = src._ad;
+	this->_hp = src._hp;
+	this->_mana = src._mana;
 	return (*this);
 
 }

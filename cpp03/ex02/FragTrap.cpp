@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 16:07:13 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:51:24 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:44:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,14 @@ void	FragTrap::highFiveGuys( void )
 
 }
 
-FragTrap &	ClapTrap::operator=(const FragTrap &src)
+FragTrap &	FragTrap::operator=(const FragTrap &src)
 {
 
 	std::cout << "Copy assignement operator called !" << std::endl;
+	this->_name = src._name;
+	this->_ad = src._ad;
+	this->_hp = src._hp;
+	this->_mana = src._mana;
 	return (*this);
 
 }

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:50 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 13:52:53 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/18 13:53:38 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include <iostream>
-#include "ClapTrap.hpp"
+#include "Polymorphism.h"
 
-class ScavTrap : public ClapTrap
+class WrongAnimal 
 {
+	protected :
+				std::string	_type;
 
-	private :
-			
 	public :
-			ScavTrap( void );
-			ScavTrap( std::string Name );
-			ScavTrap( const ScavTrap &toCopy );
-			ScavTrap &	operator=(const ScavTrap &);
-			~ScavTrap( void );
-			void	attack( const std::string &target);
-			void	guardGate();
+				WrongAnimal( void );
+				WrongAnimal( const WrongAnimal &toCopy );
+				~WrongAnimal( void );
+				WrongAnimal & operator=( const WrongAnimal & );
+
+				std::string	getType() const;
+				void	makeSound( void ) const;
 };
 
 #endif

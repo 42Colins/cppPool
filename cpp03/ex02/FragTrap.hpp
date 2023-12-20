@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:59:56 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:50:31 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:45:23 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class FragTrap : public ClapTrap
 {
 	private :
-
 
 	public :
 			FragTrap( void );

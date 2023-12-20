@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:50 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/19 11:26:10 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 13:42:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Polymorphism.h"
 
-#include <iostream>
-#include "ClapTrap.hpp"
+Brain::Brain( void )
+{
+	
+	std::cout << "My man is braining !" << std::endl;
 
-class ScavTrap : public ClapTrap
+}
+
+Brain::Brain( const Brain &toCopy )
 {
 
-	private :
-			
-	public :
-			ScavTrap( void );
-			ScavTrap( std::string Name );
-			ScavTrap( const ScavTrap &toCopy );
-			ScavTrap &	operator=(const ScavTrap &);
-			~ScavTrap( void );
-			void	attack( const std::string &target);
-			void	guardGate();
-};
+	*this = toCopy;
 
-#endif
+}
+
+Brain::~Brain( void )
+{
+
+	std::cout << "My man is now braindead :/" << std::endl;
+
+}
+
+Brain	& Brain::operator=( const Brain &src )
+{
+	
+	for(int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = src._ideas[i];
+	}
+	return (*this);
+	
+}

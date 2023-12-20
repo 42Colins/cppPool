@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:50 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/17 16:00:09 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 17:21:29 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Polymorphism.h"
 
-#include <iostream>
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int main()
 {
-
-	private :
-			
-	public :
-			ScavTrap( void );
-			ScavTrap( std::string Name );
-			ScavTrap( const ScavTrap &toCopy );
-			ScavTrap &	operator=(const ScavTrap &);
-			~ScavTrap( void );
-			void	attack( const std::string &target);
-			void	guardGate();
-};
-
-#endif
+	// Animal abstractAnimal;
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
+	return 0;
+}

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:47:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:49:43 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:43:53 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,19 @@ void	ScavTrap::guardGate()
 void	ScavTrap::attack( const std::string &target )
 {
 
-	std::cout << "Scavvy : " << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
+	std::cout << "BOOM ! " << this->_name << " attacks and deals " << this->_ad << " damages to " << target << std::endl;
 	this->_mana -= 1;
 
 }
 
-ScavTrap &	ClapTrap::operator=(const ScavTrap &src)
+ScavTrap &	ScavTrap::operator=(const ScavTrap &src)
 {
 
 	std::cout << "Copy assignement operator called !" << std::endl;
+	this->_name = src._name;
+	this->_ad = src._ad;
+	this->_hp = src._hp;
+	this->_mana = src._mana;
 	return (*this);
 
 }

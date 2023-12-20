@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/11 16:49:51 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:44:01 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class ScavTrap : public ClapTrap
 {
 
 	private :
-			// std::string	_name;
 			
 	public :
 			ScavTrap( void );

@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/18 11:33:03 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 14:44:23 by cprojean         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Polymorphism.h"
+
+Dog::Dog( void )
+{
+
+	this->_ideas = new Brain();
+	std::cout << "Creating Dog" << std::endl;
+
+}
+
+Dog::Dog( const Dog &toCopy )
+{
+	this->_ideas = new Brain();
+	*this = toCopy;
+	return;
+
+}
+
+Dog::~Dog( void )
+{
+	delete this->_ideas;
+	std::cout << "Doggo dying.." << std::endl;
+	
+}
+
+Dog & Dog::operator=(const Dog &src )
+{
+
+	this->_type = src.getType();
+	return(*this);
+
+}
+
+void	Dog::makeSound( void ) const
+{
+
+	std::cout << "Doggo says : BARK BARK" << std::endl;
+
+}

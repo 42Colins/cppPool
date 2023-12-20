@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:50 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/18 11:33:12 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 13:16:25 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
-#include "ClapTrap.hpp"
+#include "Polymorphism.h"
 
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
-
 	private :
-			
+			Brain *_ideas;
 	public :
-			ScavTrap( void );
-			ScavTrap( std::string Name );
-			ScavTrap( const ScavTrap &toCopy );
-			ScavTrap &	operator=(const ScavTrap &);
-			~ScavTrap( void );
-			void	attack( const std::string &target);
-			void	guardGate();
+			Dog( void );
+			~Dog( void );
+			Dog( const Dog &toCopy );
+			Dog & operator=(const Dog &);
+			void	makeSound( void ) const;
+
 };
 
 #endif

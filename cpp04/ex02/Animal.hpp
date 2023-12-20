@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 14:28:51 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/20 12:28:50 by cprojean         ###   ########.fr       */
+/*   Created: 2023/12/17 15:57:45 by cprojean          #+#    #+#             */
+/*   Updated: 2023/12/19 17:17:14 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include <iostream>
-#include "ClapTrap.hpp"
+#include "Polymorphism.h"
 
-class ScavTrap : public ClapTrap
+class Animal 
 {
+	protected :
+				std::string	_type;
 
-	private :
-			
 	public :
-			ScavTrap( void );
-			ScavTrap( std::string Name );
-			ScavTrap( const ScavTrap &toCopy );
-			ScavTrap &	operator=(const ScavTrap &);
-			~ScavTrap( void );
-			void	attack( const std::string &target);
-			void	guardGate();
+				Animal( void );
+				Animal( const Animal &toCopy );
+				virtual ~Animal( void );
+				Animal & operator=( const Animal & );
+
+				std::string	getType() const;
+				virtual void	makeSound( void ) const = 0;
 };
 
 #endif
