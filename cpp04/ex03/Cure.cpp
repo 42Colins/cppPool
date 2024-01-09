@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:48:39 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 11:20:24 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:20:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Cure & Cure::operator=( const Cure &src )
 void Cure::use( ICharacter &name )
 {
 
-	std::cout << "* Healing " << name.getName() << " *" << std::endl;
+	std::cout << "* heals " << name.getName() << "'s wounds *" << std::endl;
 
 }
 

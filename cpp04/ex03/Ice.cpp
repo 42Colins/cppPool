@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:44:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 11:22:13 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:42:36 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Ice & Ice::operator=( const Ice &src )
 void Ice::use( ICharacter &name )
 {
 
-	std::cout << "* shoots an ice bolt at" << name.getName() << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << name.getName() << " *" << std::endl;
 
 }
 

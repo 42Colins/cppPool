@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:24:55 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 11:29:15 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:41:48 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ Character::Character( void )
 	std::cout << "New character appears !" << std::endl;
 	this->_name = "John Doe";
 	this->_idx = 0;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	
 }
 
@@ -27,6 +29,8 @@ Character::Character( std::string name )
 	std::cout << "New character appears !" << std::endl;
 	this->_name = name;
 	this->_idx = 0;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 	
 }
 
@@ -52,6 +56,10 @@ Character & Character::operator=( const Character &src )
 Character::~Character( void )
 {
 	
+	for(int i = 0; i < 4; i++)
+	{
+		delete this->_inventory[i];
+	}
 	std::cout << this->_name << " died ..." << std::endl;
 	
 }
@@ -66,10 +74,11 @@ std::string const & Character::getName( void ) const
 void	Character::equip(AMateria* m)
 {
 
-	if (_idx <= 3)
+	if (_idx < 3)
 	{
-		this->_idx += 1;
-		this->_inventory[_idx + 1] = m;
+		this->_inventory[_idx] = m;
+		_idx+=1;
+		// this->_inventory[_idx + 1]->_type = m->getType();
 	}
 	else
 		std::cout << "I can't have more than 4 materias bruv" << std::endl;
@@ -92,6 +101,11 @@ void	Character::unequip( int idx )
 void	Character::use( int idx, ICharacter& target )
 {
 
-	this->_inventory[idx]->use(target);
+	if (idx >= 0 && idx < 4)
+	{
+		this->_inventory[idx]->use(target);
+	}
+	else
+		return ;
 
 }

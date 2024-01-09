@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:01:41 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 11:26:16 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:20:17 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ MateriaSource::MateriaSource( const MateriaSource &toCopy )
 MateriaSource::~MateriaSource( void )
 {
 	
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_spellbook[i])
+			delete this->_spellbook[i];
+	}
 	std::cout << "The Materia fell on the floor and broke ;/" << std::endl;
 	
 }
@@ -64,8 +69,8 @@ void	MateriaSource::learnMateria( AMateria* spell )
 AMateria *MateriaSource::createMateria( std::string const &materia )
 {
 
-	const std::string ice = "Ice";
-	const std::string cure = "Cure";
+	const std::string ice = "ice";
+	const std::string cure = "cure";
 	AMateria *returned;
 
 	if (materia == ice)
@@ -73,7 +78,10 @@ AMateria *MateriaSource::createMateria( std::string const &materia )
 	else if (materia == cure)
 		returned = new Cure();
 	else
+	{
+		std::cout << "fail" << std::endl;
 		returned = NULL;
+	}
 	return (returned);
 
 }

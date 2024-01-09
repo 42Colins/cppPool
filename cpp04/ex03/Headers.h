@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:51:48 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/08 16:09:33 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:21:46 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 #include "Cure.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
+#include <stdio.h>
 
 #endif
