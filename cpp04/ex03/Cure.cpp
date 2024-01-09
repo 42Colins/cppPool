@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:48:39 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 14:20:49 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:40:45 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cure::Cure( void )
 {
 	
-	std::cout << "Cure spell created !" << std::endl;
+	// std::cout << "Cure spell created !" << std::endl;
 	this->_type = "cure";
 	
 }
@@ -30,7 +30,8 @@ Cure::Cure( const Cure &toCopy )
 Cure::~Cure( void )
 {
 	
-	std::cout << "Cure spell broke on the floor !" << std::endl;
+	// std::cout << "Cure spell broke on the floor !" << std::endl;
+	return ;
 	
 }
 

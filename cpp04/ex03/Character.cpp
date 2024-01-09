@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:24:55 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 14:41:48 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:38:56 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Character::Character( void )
 {
 	
-	std::cout << "New character appears !" << std::endl;
+	// std::cout << "New character appears !" << std::endl;
 	this->_name = "John Doe";
 	this->_idx = 0;
 	for (int i = 0; i < 4; i++)
@@ -26,7 +26,7 @@ Character::Character( void )
 Character::Character( std::string name )
 {
 	
-	std::cout << "New character appears !" << std::endl;
+	// std::cout << "New character appears !" << std::endl;
 	this->_name = name;
 	this->_idx = 0;
 	for (int i = 0; i < 4; i++)
@@ -37,7 +37,7 @@ Character::Character( std::string name )
 Character::Character( const Character &toCopy )
 {
 	
-	std::cout << "New character appears !" << std::endl;
+	// std::cout << "New character appears !" << std::endl;
 	this->_idx = 0;
 	*this = toCopy;
 	
@@ -60,7 +60,7 @@ Character::~Character( void )
 	{
 		delete this->_inventory[i];
 	}
-	std::cout << this->_name << " died ..." << std::endl;
+	// std::cout << this->_name << " died ..." << std::endl;
 	
 }
 

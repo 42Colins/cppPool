@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:44:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 14:42:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:41:02 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Ice::Ice( void )
 {
 	
-	std::cout << "Ice spell created !" << std::endl;
+	// std::cout << "Ice spell created !" << std::endl;
 	this->_type = "ice";
 	
 }
@@ -30,7 +30,9 @@ Ice::Ice( const Ice &toCopy )
 Ice::~Ice( void )
 {
 	
-	std::cout << "Ice spell broke on the floor !" << std::endl;
+	// std::cout << "Ice spell broke on the floor !" << std::endl;
+	return ;
+	
 	
 }
 

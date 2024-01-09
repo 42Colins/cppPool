@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:01:41 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 14:20:17 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:39:47 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource( void )
 {
 	
-	std::cout << "New MateriaSource !" << std::endl;
+	// std::cout << "New MateriaSource !" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_spellbook[i] = NULL;
 	this->_index = 0;
@@ -37,7 +37,7 @@ MateriaSource::~MateriaSource( void )
 		if (this->_spellbook[i])
 			delete this->_spellbook[i];
 	}
-	std::cout << "The Materia fell on the floor and broke ;/" << std::endl;
+	// std::cout << "The Materia fell on the floor and broke ;/" << std::endl;
 	
 }
 
@@ -61,8 +61,8 @@ void	MateriaSource::learnMateria( AMateria* spell )
 		this->_spellbook[this->_index] = spell;
 		this->_index += 1;
 	}
-	else
-		std::cout << "Cannot learn anymore spells sadly" << std::endl;
+	// else
+		// std::cout << "Cannot learn anymore spells sadly" << std::endl;
 
 }
 
