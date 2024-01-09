@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:57:32 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/08 18:21:03 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:04:41 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 
 #include "Headers.h"
 
+class AMateria;
+
 class MateriaSource : public IMateriaSource
 {
 	private :
-			AMateria spellbook[4];
+			AMateria *_spellbook[4];
+			int		 _index;
+			
 	public :
 			MateriaSource( void );
 			MateriaSource( const MateriaSource &toCopy );

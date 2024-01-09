@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:48:39 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/08 15:49:14 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:20:24 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Cure::Cure( void )
 {
 	
 	std::cout << "Cure spell created !" << std::endl;
+	this->_type = "cure";
 	
 }
 
@@ -45,5 +46,12 @@ void Cure::use( ICharacter &name )
 {
 
 	std::cout << "* Healing " << name.getName() << " *" << std::endl;
+
+}
+
+AMateria *Cure::clone() const
+{
+
+	return (new Cure());
 
 }

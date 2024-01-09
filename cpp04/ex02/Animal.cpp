@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:58:03 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 13:35:19 by cprojean         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:24:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ Animal::~Animal( void )
 {
 
 	std::cout << "Animal destroyed" << std::endl;
-
-}
-
-void	Animal::makeSound( void ) const
-{
-
-	std::cout << "Animal says : wtf ?" << std::endl;
 
 }
 

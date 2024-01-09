@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:24:55 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/05 18:20:39 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:29:15 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,13 @@ std::string const & Character::getName( void ) const
 void	Character::equip(AMateria* m)
 {
 
-	this->_idx += 1;
-	this->_inventory[_idx + 1] = m;
+	if (_idx <= 3)
+	{
+		this->_idx += 1;
+		this->_inventory[_idx + 1] = m;
+	}
+	else
+		std::cout << "I can't have more than 4 materias bruv" << std::endl;
 
 }
 

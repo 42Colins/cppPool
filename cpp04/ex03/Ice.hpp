@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:37:06 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/08 15:50:18 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:21:58 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@
 
 class Ice : public AMateria
 {
-	private	 :
-	
 	public 	:
 		Ice( void );
 		~Ice( void );
 		Ice( const Ice &toCopy );
 		Ice & operator=( const Ice & );
-		AMateria & operator=( const AMateria & );
+		AMateria *clone() const;
 		void use(ICharacter &target);
 };
 

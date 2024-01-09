@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:24:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/08 15:50:10 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:20:03 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
 				~Cure( void );
 				Cure( const Cure &toCopy );
 				Cure & operator=( const Cure & );
-				AMateria & operator=( const AMateria & );
+				AMateria *clone() const;
 				void use(ICharacter &target);
 };
 

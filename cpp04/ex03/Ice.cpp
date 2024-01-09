@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:44:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/05 18:06:49 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:22:13 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Ice::Ice( void )
 {
 	
 	std::cout << "Ice spell created !" << std::endl;
+	this->_type = "ice";
 	
 }
 
@@ -45,5 +46,12 @@ void Ice::use( ICharacter &name )
 {
 
 	std::cout << "* shoots an ice bolt at" << name.getName() << " *" << std::endl;
+
+}
+
+AMateria *Ice::clone() const
+{
+
+	return (new Ice());
 
 }
