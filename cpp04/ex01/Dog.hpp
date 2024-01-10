@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:33:12 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/19 13:16:25 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:36:20 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal
 			Brain *_ideas;
 	public :
 			Dog( void );
-			~Dog( void );
+			virtual ~Dog( void );
 			Dog( const Dog &toCopy );
 			Dog & operator=(const Dog &);
 			void	makeSound( void ) const;

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:23:42 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/19 13:15:20 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:36:15 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 	public :
 			Cat( void );
 			Cat( const Cat &toCopy );
-			~Cat( void );
+			virtual ~Cat( void );
 			Cat & operator=( const Cat & );
 			void	makeSound( void ) const ;
 };
