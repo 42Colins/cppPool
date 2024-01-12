@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:01:41 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 16:39:47 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:47 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ MateriaSource::~MateriaSource( void )
 
 MateriaSource & MateriaSource::operator=( const MateriaSource &src )
 {
-		
+	
+	if (this == &src)
+		return (*this);	
 	for(int i = 0; i < 4; i++)
 	{
 		this->_spellbook[i] = src._spellbook[i]->clone();

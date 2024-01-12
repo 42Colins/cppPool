@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:44:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 16:41:02 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:35 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ Ice::~Ice( void )
 Ice & Ice::operator=( const Ice &src )
 {
 
+	if (this == &src)
+		return (*this);
 	this->_type = src._type;
 	return (*this);
 

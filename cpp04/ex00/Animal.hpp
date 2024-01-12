@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:57:45 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 13:30:50 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:07:13 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class Animal
 	public :
 				Animal( void );
 				Animal( const Animal &toCopy );
-				~Animal( void );
+				virtual ~Animal( void );
 				Animal & operator=( const Animal & );
 
-				std::string	getType() const;
+				std::string	getType( void ) const;
 				virtual void	makeSound( void ) const;
 };
 

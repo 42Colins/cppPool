@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:33:12 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/10 17:39:59 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:38:15 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Dog : public Animal
 			Dog( const Dog &toCopy );
 			Dog & operator=(const Dog &);
 			void	makeSound( void ) const;
-
+			std::string	getType( void ) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:48:39 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 16:40:45 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:30 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ Cure::~Cure( void )
 Cure & Cure::operator=( const Cure &src )
 {
 
+	if (this == &src)
+		return (*this);
 	this->_type = src._type;
 	return (*this);
 

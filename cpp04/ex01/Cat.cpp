@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:22:37 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/19 14:42:09 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:16:47 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Cat::Cat( void )
 
 	this->_ideas = new Brain();
 	std::cout << "Prossessing Cat" << std::endl;
+	this->_type = "Cat";
 	
 }
 
@@ -39,6 +40,8 @@ Cat::~Cat( void )
 Cat &	Cat::operator=( const Cat &src )
 {
 	
+	if (this == &src)
+		return (*this);
 	this->_type = src.getType();
 	return (*this);
 
@@ -48,5 +51,13 @@ void	Cat::makeSound( void ) const
 {
 
 	std::cout << "Cat says : MEOW MEOW" << std::endl;
+
+}
+
+std::string	Cat::getType( void ) const
+{
+	
+	std::string returned = this->_type;
+	return (returned);
 
 }

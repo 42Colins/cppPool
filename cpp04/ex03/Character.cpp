@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:24:55 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 16:38:56 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:23 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ Character::Character( const Character &toCopy )
 Character & Character::operator=( const Character &src )
 {
 	
+	if (this == &src)
+		return (*this);
 	this->_name = src.getName();
 	this->_idx = src._idx;
 	*this->_inventory = *src._inventory;

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:53:22 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 13:53:29 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:22:55 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ std::string	WrongAnimal::getType( void ) const
 WrongAnimal &	WrongAnimal::operator=(const WrongAnimal &src )
 {
 
+	if (this == &src)
+		return (*this);
 	this->_type = src.getType();
 	return (*this);
 

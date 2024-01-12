@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:23:42 by cprojean          #+#    #+#             */
-/*   Updated: 2023/12/18 13:22:28 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:24:01 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat : public Animal
 			~Cat( void );
 			Cat & operator=( const Cat & );
 			void	makeSound( void ) const ;
+			std::string	getType( void ) const;
 };
 
 

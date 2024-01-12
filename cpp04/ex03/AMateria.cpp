@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:57:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 16:40:30 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:26:14 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ AMateria::~AMateria( void )
 AMateria & AMateria::operator=( const AMateria &src )
 {
 
+	if (this == &src)
+		return (*this);
 	this->_type = src._type;
 	return (*this);
 

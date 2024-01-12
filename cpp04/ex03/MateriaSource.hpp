@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:57:32 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/09 11:04:41 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:44:21 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class MateriaSource : public IMateriaSource
 			~MateriaSource( void );
 			MateriaSource & operator=( const MateriaSource & );
 			void	learnMateria( AMateria* );
-			AMateria* createMateria( std::string const & type );	
+			AMateria* createMateria( std::string const & type );
 };
 
 #endif
