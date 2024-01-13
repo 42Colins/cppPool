@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:01:41 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/12 16:26:47 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:11:20 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ MateriaSource & MateriaSource::operator=( const MateriaSource &src )
 void	MateriaSource::learnMateria( AMateria* spell )
 {
 
-	if (this->_index <= 2)
+	if (this->_index < 4)
 	{
 		this->_spellbook[this->_index] = spell;
 		this->_index += 1;
 	}
-	// else
-		// std::cout << "Cannot learn anymore spells sadly" << std::endl;
+	else
+		std::cout << "Cannot learn anymore spells" << std::endl;
 
 }
 
@@ -73,17 +73,26 @@ AMateria *MateriaSource::createMateria( std::string const &materia )
 
 	const std::string ice = "ice";
 	const std::string cure = "cure";
-	AMateria *returned;
+	AMateria *returned = NULL;
+	int isOkay = 0;
 
-	if (materia == ice)
-		returned = new Ice();
-	else if (materia == cure)
-		returned = new Cure();
-	else
+	for (int i = 0; i < this->_index; i++)
 	{
-		std::cout << "fail" << std::endl;
-		returned = NULL;
+		if (_spellbook[i]->getType() == materia)
+		{
+			isOkay = 1;
+			break ;
+		}
 	}
+	if (isOkay == 1)
+	{
+		if (materia == ice)
+			returned = new Ice();
+		else if (materia == cure)
+			returned = new Cure();
+	}
+	else
+		std::cout << "Failed to create this Materia, it doesn't exist" << std::endl;
 	return (returned);
 
 }

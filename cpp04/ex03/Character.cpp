@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 16:24:55 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/12 16:26:23 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:06:37 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ void	Character::use( int idx, ICharacter& target )
 
 	if (idx >= 0 && idx < 4)
 	{
-		this->_inventory[idx]->use(target);
+		if (this->_inventory[idx])
+			this->_inventory[idx]->use(target);
+		else
+			std::cout << "No Materias available in this slot" << std::endl;
 	}
 	else
 		return ;
