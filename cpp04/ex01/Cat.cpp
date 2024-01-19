@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:22:37 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/12 16:16:47 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:06:52 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Cat::Cat( const Cat &toCopy )
 Cat::~Cat( void )
 {
 	delete this->_ideas;
-	std::cout << "Killing Cat" << std::endl;
+	std::cout << "Suffocating Cat" << std::endl;
 
 }
 

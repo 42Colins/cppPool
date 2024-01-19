@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:26:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/12 16:17:57 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:06:20 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Brain::Brain( void )
 
 Brain::Brain( const Brain &toCopy )
 {
-
 
 	*this = toCopy;
 

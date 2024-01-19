@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:33:03 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/12 16:16:12 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:08:45 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ Dog::Dog( const Dog &toCopy )
 {
 
 	this->_ideas = new Brain();
+	for (int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = toCopy->_ideas[i];
+	}
 	*this = toCopy;
 	return;
 
@@ -44,6 +48,11 @@ Dog & Dog::operator=(const Dog &src )
 
 	if (this == &src)
 		return (*this);
+	this->_ideas = new Brain();
+	for (int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = toCopy->_ideas[i];
+	}
 	this->_type = src.getType();
 	return(*this);
 
