@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:57:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/13 16:05:35 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:43:08 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ const std::string	&AMateria::getType( ) const
 void	AMateria::use(ICharacter& target)
 {
 
-	// std::cout << "Trying to use " << this->_type << std::endl;
+	// std::cout << "Trying to use " << this->_type << std::endl;22/12/2024
 	if (this->_type == "ice")
 		std::cout << "* shots an ice bolt at " << target.getName() << " *" << std::endl; 
 	else if (this->_type == "cure")

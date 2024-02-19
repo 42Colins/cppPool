@@ -6,30 +6,18 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/01/08 16:10:12 by cprojean         ###   ########.fr        #
+#    Updated: 2024/02/19 17:44:16 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Abracadabra
+NAME = Bureaucrat
 
-CPP	 =	c++ -std=c++98 -g3
+CPP	 =	c++ -std=c++98
 
 SRCS =		main.cpp	\
-			AMateria.cpp  \
-			Ice.cpp 	\
-			Cure.cpp 	\
-			Character.cpp \
-			MateriaSource.cpp
+			Bureaucrat.cpp  \
 
-
-HEADER =	AMateria.hpp	\
-			Ice.hpp		\
-			Cure.hpp		\
-			Character.hpp\
-			ICharacter.hpp\
-			IMateriaSource.hpp	\
-			Headers.h 			\
-			MateriaSource.hpp
+HEADER =	Bureaucrat.hpp	\
 
 
 OBJS = $(SRCS:.cpp=.o)

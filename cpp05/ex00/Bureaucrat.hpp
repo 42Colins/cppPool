@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrats.hpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:47:06 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/10 18:21:58 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:35:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRATS_HPP
-# define BUREAUCRATS_HPP
+#ifndef Bureaucrat_HPP
+# define Bureaucrat_HPP
 
 # include "iostream"
 # include "stdexcept"
 
-class Bureaucrats 
+class Bureaucrat 
 {
-	public :
+	private :
 				std::string _name;
 				int	_grade;
-	private :
-				Bureaucrats( void );
-				Bureaucrats( int grade, std::string name );
-				Bureaucrats (const Bureaucrats &toCopy );
-				~Bureaucrats ( void );
-				Bureaucrats & operator=( const Bureaucrats & );
-				std::string getName( void );
-				int	getGrade( void );
-				std::string	promotion( int grade );
-				std::string	nearlyFired( int grade );
+	public :
+				Bureaucrat( void );
+				Bureaucrat( int grade, std::string name );
+				Bureaucrat (const Bureaucrat &toCopy );
+				~Bureaucrat ( void );
+				Bureaucrat & operator=( const Bureaucrat & );
+				std::string getName( void ) const;
+				int	getGrade( void ) const;
+				void	promotion( int grade );
+				void	nearlyFired( int grade );
 				class GradeTooHighException : public std::exception
 				{
 					public :
-							virtual const char *error() const throw();
+							virtual const char *what() const throw();
 				};
 				class GradeTooLowException : public std::exception
 				{
 					public :
-							virtual const char *error() const throw();
+							virtual const char *what() const throw();
 				};
 };
+
+std::ostream &  operator<<( std::ostream & o, const Bureaucrat &name );
 
 #endif
