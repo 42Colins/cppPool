@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:53:46 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/19 19:13:43 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:38:44 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ Form::Form(void) : _name("Form"), _minSignGrade(1), _minExecGrade(1)
 Form::Form(std::string name, int minSign, int minExec) : _name(name), _minSignGrade(minSign), _minExecGrade(minExec)
 {
 	_isSigned = false;
-	if (minSign <= 1 || minExec <= 1)
-		throw Form::GradeTooLowException();
-	else if (minSign >= 150 || minExec >= 150)
-		throw Form::GradeTooHighException();	
+	// if (minSign < 1 || minExec < 1)
+	// 	throw Form::GradeTooLowException();
+	// else if (minSign > 150 || minExec > 150)
+	// 	throw Form::GradeTooHighException();
 }
 
 Form::Form( const Form &toCopy ) : _name(toCopy._name), _minSignGrade(toCopy._minSignGrade), _minExecGrade(toCopy._minExecGrade)

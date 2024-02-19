@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:09:36 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/19 18:04:50 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:39:17 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 	}
 	try
 	{
-		Sam->promotion(1);
+		Sam->promotion(18);
 		std::cout << "New grade " << Sam->getGrade() << std::endl; 
 	}
 	catch(Bureaucrat::GradeTooHighException &e)
@@ -51,4 +51,16 @@ int main(void)
 	
 	std::cout << *Sam;
 	std::cout << *Francois;
+	try
+	{
+		Form *form = new Form("Samere", 2, 2);
+		form->beSigned(Sam);
+		std::cout << "Sam" << std::endl;
+		form->beSigned(Francois);
+		std::cout << "Francois" << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
