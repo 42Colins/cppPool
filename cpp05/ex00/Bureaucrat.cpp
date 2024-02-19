@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrats.cpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:52:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/01/10 18:21:32 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:34:51 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrats.hpp"
+#include "Bureaucrat.hpp"
 
-Bureaucrats::Bureaucrats( void )
+Bureaucrat::Bureaucrat( void )
 {
 
 	this->_name = "John Doe";
@@ -21,7 +21,7 @@ Bureaucrats::Bureaucrats( void )
 
 }
 
-Bureaucrats::Bureaucrats( int grade, std::string name )
+Bureaucrat::Bureaucrat( int grade, std::string name )
 {
 
 	if (grade > 150 || grade < 1)
@@ -32,74 +32,84 @@ Bureaucrats::Bureaucrats( int grade, std::string name )
 
 }
 
-Bureaucrats::Bureaucrats( const Bureaucrats &toCopy )
+Bureaucrat::Bureaucrat( const Bureaucrat &toCopy )
 {
 
 	*this = toCopy;
 
 }
 
-Bureaucrats::~Bureaucrats( void )
+Bureaucrat::~Bureaucrat( void )
 {
 
 	std::cout << this->_name << " was found dead this morning ..." << std::endl;
 
 }
 
-Bureaucrats & Bureaucrats::operator=( const Bureaucrats &src )
+Bureaucrat & Bureaucrat::operator=( const Bureaucrat &src )
 {
 
 	this->_name = src._name;
 	this->_grade = src._grade;
+	return (*this);
 
 }
 
-std::string	Bureaucrats::getName( void )
+std::string	Bureaucrat::getName( void ) const
 {
 
 	return (this->_name);
 
 }
 
-int	Bureaucrats::getGrade( void )
+int	Bureaucrat::getGrade( void ) const
 {
 
 	return (this->_grade);
 
 }
 
-std::string	Bureaucrats::promotion( int grade )
+void	Bureaucrat::promotion( int grade )
 {
 
-	int newGrade = this->_grade + grade;
-	if (newGrade > 0)
+	int newGrade = this->_grade - grade;
+	if (newGrade <= 0)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade = newGrade;
 
 }
 
-std::string	Bureaucrats::nearlyFired( int grade )
+void	Bureaucrat::nearlyFired( int grade )
 {
 
-	int newGrade = this->_grade - grade;
-	if (newGrade > 0)
+	int newGrade = this->_grade + grade;
+	if (newGrade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = newGrade;
 
 }
 
-const char * Bureaucrats::GradeTooLowException::error() const throw()
+const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
 
 	return ("Sorry, grade too low\n");
 
 }
 
-const char *Bureaucrats::GradeTooHighException::error() const throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 
 	return ("Sorry, grade too high\n");
+
+}
+
+std::ostream &  operator<<( std::ostream & o, const Bureaucrat &name )
+{
+
+	// std::cout << name.getName(); 
+    o << name.getName() << " , bureaucrat grade " << name.getGrade() << std::endl;
+    return o;
 
 }

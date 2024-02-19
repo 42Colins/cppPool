@@ -6,19 +6,20 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/02/19 17:44:16 by cprojean         ###   ########.fr        #
+#    Updated: 2024/02/19 18:12:12 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Abracadabra
 
 CPP	 =	c++ -std=c++98
 
 SRCS =		main.cpp	\
 			Bureaucrat.cpp  \
+			Form.cpp
 
 HEADER =	Bureaucrat.hpp	\
-
+			Form.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
