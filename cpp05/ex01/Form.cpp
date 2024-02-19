@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:53:46 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/19 21:38:44 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:51:56 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ std::ostream &  operator<<( std::ostream & o, const Form &name )
 
 	// std::cout << name.getName(); 
     o << name.getName() << " form needs grade " << name.getSign() << " to be signed and a grade of " << name.getExec() << " to be executed." << std::endl;
+	if (name.isSigned() == true)
+		o << "This form is signed" << std::endl;
+	else
+		o << "This form is not signed" << std::endl;
     return o;
 
 }

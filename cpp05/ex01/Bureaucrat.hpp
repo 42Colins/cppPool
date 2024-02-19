@@ -15,6 +15,9 @@
 
 # include "iostream"
 # include "stdexcept"
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat 
 {
@@ -31,6 +34,7 @@ class Bureaucrat
 				int	getGrade( void ) const;
 				void	promotion( int grade );
 				void	nearlyFired( int grade );
+				void	signForm(Form *form);
 				class GradeTooHighException : public std::exception
 				{
 					public :

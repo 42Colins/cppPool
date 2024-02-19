@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat( void )
 {
@@ -89,6 +90,14 @@ void	Bureaucrat::nearlyFired( int grade )
 	else
 		this->_grade = newGrade;
 
+}
+
+void	Bureaucrat::signForm(Form *form)
+{
+	if (this->getGrade() <= form->getSign())
+		form->beSigned(this);
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()

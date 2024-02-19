@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:54 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/19 18:17:54 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:47:06 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form 
 {
