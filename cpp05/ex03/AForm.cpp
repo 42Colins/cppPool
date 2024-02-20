@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:53:46 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 12:48:33 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:55:07 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(void) : _name("Form"), _minSignGrade(1), _minExecGrade(1)
+AForm::AForm(void) : _name("AForm"), _minSignGrade(1), _minExecGrade(1)
 {
 	_isSigned = false;
 }
 
-Form::Form(std::string name, int minSign, int minExec) : _name(name), _minSignGrade(minSign), _minExecGrade(minExec)
+AForm::AForm(std::string name, int minSign, int minExec) : _name(name), _minSignGrade(minSign), _minExecGrade(minExec)
 {
 	_isSigned = false;
-	// if (minSign < 1 || minExec < 1)
-	// 	throw Form::GradeTooLowException();
-	// else if (minSign > 150 || minExec > 150)
-	// 	throw Form::GradeTooHighException();
+	if (minSign < 1 || minExec < 1)
+		throw AForm::GradeTooLowException();
+	else if (minSign > 150 || minExec > 150)
+		throw AForm::GradeTooHighException();
 }
 
-Form::Form( const Form &toCopy ) : _name(toCopy._name), _minSignGrade(toCopy._minSignGrade), _minExecGrade(toCopy._minExecGrade)
+AForm::AForm( const AForm &toCopy ) : _name(toCopy._name), _minSignGrade(toCopy._minSignGrade), _minExecGrade(toCopy._minExecGrade)
 {
 	_isSigned = toCopy._isSigned;
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
 }
 
-Form & Form::operator=( const Form &src ) : _name(src._name), _minSignGrade(src._minSignGrade), _minExecGrade(src._minExecGrade)
+AForm & AForm::operator=( const AForm &src )
 {
 
 	this->_isSigned = src._isSigned;
@@ -44,49 +44,57 @@ Form & Form::operator=( const Form &src ) : _name(src._name), _minSignGrade(src.
 
 }
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
 	return (_name);
 }
 
-int	Form::getSign(void) const 
+int	AForm::getSign(void) const 
 {
 	return (_minSignGrade);
 }
 
-int Form::getExec(void) const
+int AForm::getExec(void) const
 {
 	return (_minExecGrade);
 }
 
-bool Form::isSigned(void) const
+bool AForm::isSigned(void) const
 {
 	return (_isSigned);
 }
 
-void Form::beSigned(Bureaucrat *name)
+void AForm::beSigned(Bureaucrat *name)
 {
 	if (name->getGrade() <= _minSignGrade)
 		_isSigned = true;
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-const char * Form::GradeTooLowException::what() const throw()
+const char * AForm::GradeTooLowException::what() const throw()
 {
 
 	return ("Sorry, grade too low\n");
 
 }
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 
 	return ("Sorry, grade too high\n");
 
 }
 
-std::ostream &  operator<<( std::ostream & o, const Form &name )
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	if (executor.getGrade() <= getExec())
+		execForm();
+	else
+		throw AForm::GradeTooLowException();
+}
+
+std::ostream &  operator<<( std::ostream & o, const AForm &name )
 {
 
 	// std::cout << name.getName(); 
