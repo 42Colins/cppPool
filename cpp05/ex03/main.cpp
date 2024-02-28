@@ -6,10 +6,11 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:09:36 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 15:57:08 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:20:06 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "math.h"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -19,6 +20,7 @@
 
 int main(void)
 {
+	srand (time(NULL));
 	Bureaucrat *Sam = new Bureaucrat(1, "Uncle Sam");
 	Bureaucrat *Francois = new Bureaucrat;
 	Intern *JohnDoe = new Intern;
