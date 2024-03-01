@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 16:56:57 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/28 18:23:54 by cprojean         ###   ########.fr       */
+/*   Created: 2024/02/29 14:00:01 by cprojean          #+#    #+#             */
+/*   Updated: 2024/02/29 18:36:52 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main(int argc, char **argv)
+template <typename T>
+
+void iter(T *array, size_t size, void (*func)(T const &))
 {
-	(void) argv;
-	if (argc != 2)
+	for (size_t i = 0; i < size; i++)
 	{
-		std::cout << "Wrong arguments !" << std::endl;
-		return 1;
+		func(array[i]);
 	}
-	else
-	{
-		Base *newBase = generate();
-		identify(newBase);
-		identify(*newBase);
-	}
-	return 0;
 }
+
+template <typename T>
+
+void iter(T *array, size_t size, void (*func)(T &))
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		func(array[i]);
+	}
+}
+
+template <typename T2>
+
+void	printShit(T2 value)
+{
+	std::cout << value << std::endl;
+}
+
+#endif

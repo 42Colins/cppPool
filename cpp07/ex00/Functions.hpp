@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Functions.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 16:56:57 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/28 18:23:54 by cprojean         ###   ########.fr       */
+/*   Created: 2024/02/29 14:00:01 by cprojean          #+#    #+#             */
+/*   Updated: 2024/02/29 14:51:31 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef FUNCTIONS_HPP
+# define FUNCTIONS_HPP
 
-int main(int argc, char **argv)
+template <typename T> T max(T x, T y)
 {
-	(void) argv;
-	if (argc != 2)
-	{
-		std::cout << "Wrong arguments !" << std::endl;
-		return 1;
-	}
-	else
-	{
-		Base *newBase = generate();
-		identify(newBase);
-		identify(*newBase);
-	}
-	return 0;
+    return (x > y) ? x : y;
 }
+
+template <typename T> T min(T x, T y)
+{
+    return (x < y) ? x : y;
+}
+
+template <typename T> void swap(T &x, T &y)
+{
+	T temp = x;
+	x = y;
+	y = temp;
+}
+
+#endif

@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 16:56:57 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/28 18:23:54 by cprojean         ###   ########.fr       */
+/*   Created: 2024/02/29 13:59:21 by cprojean          #+#    #+#             */
+/*   Updated: 2024/02/29 17:05:53 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include <iostream>
+#include "Iter.hpp"
+#include "string.h"
+#include "stdio.h"
 
-int main(int argc, char **argv)
+int main( void ) 
 {
-	(void) argv;
-	if (argc != 2)
-	{
-		std::cout << "Wrong arguments !" << std::endl;
-		return 1;
-	}
-	else
-	{
-		Base *newBase = generate();
-		identify(newBase);
-		identify(*newBase);
-	}
+	int tab[10] = {0,1,2,3,4,5,6,7,8,9};
+	std::string str = "Hello world !";
+	::iter(tab, 10, printShit);
+	std::cout << std::endl;
+	::iter(str.c_str(), str.size(), printShit);
 	return 0;
 }
+

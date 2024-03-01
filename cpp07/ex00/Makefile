@@ -6,28 +6,17 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/02/29 19:32:20 by cprojean         ###   ########.fr        #
+#    Updated: 2024/02/29 14:43:40 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ExecutingForms
+NAME = Identification
 
 CPP	 =	c++ -std=c++98
 
-SRCS =		main.cpp			\
-			Bureaucrat.cpp  	\
-			AForm.cpp 			\
-			ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp 	\
-			PresidentialPardonForm.cpp \
-			Intern.cpp
+SRCS =		main.cpp
 
-HEADER =	Bureaucrat.hpp	\
-			AForm.hpp		\
-			ShrubberyCreationForm.hpp \
-			RobotomyRequestForm.hpp 	\
-			PresidentialPardonForm.hpp 	\
-			Intern.hpp
+HEADER =	Functions.hpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
