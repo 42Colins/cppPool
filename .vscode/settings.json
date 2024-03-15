@@ -75,6 +75,7 @@
         "random": "cpp",
         "ranges": "cpp",
         "array.hpp": "c",
-        "*.tpp": "c"
+        "*.tpp": "c",
+        "list": "cpp"
     }
 }

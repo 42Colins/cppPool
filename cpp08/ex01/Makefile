@@ -1,0 +1,42 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
+#    Updated: 2024/03/11 13:20:46 by cprojean         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = Span
+
+CPP	 =	c++ -std=c++98 -g3
+
+SRCS =		main.cpp \
+			Span.cpp
+
+HEADER =	Span.hpp \
+
+OBJS = $(SRCS:.cpp=.o)
+
+CPPFLAGS = -Wall -Wextra -Werror
+
+all : $(NAME)
+
+%.o: %.cpp $(HEADER)
+	$(CPP) $(CPPFLAGS) -I ./ -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+
+clean : 
+	rm -rf $(OBJS)
+
+fclean : clean
+	rm -rf $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re
