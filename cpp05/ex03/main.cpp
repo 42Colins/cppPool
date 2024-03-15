@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:09:36 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/28 18:20:06 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:38:08 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,15 @@ int main(void)
 	}
 	
 	std::cout << "NEXT" << std::endl;
+	try
 	{
 		Intern someRandomIntern;
-		AForm* rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		AForm* rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+		Sam->signForm(*rrf);
+		Sam->executeForm(*rrf);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 } 

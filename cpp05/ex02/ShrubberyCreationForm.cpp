@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:43:26 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 14:28:34 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:28:17 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,23 @@ void ShrubberyCreationForm::execForm(void) const
 	std::string		str;
 	std::string		fileName;
 	
-	fd.open("Tree.txt", std::fstream::in);
-	if (fd.fail())
-	{
-		std::cout << "Error while opening the file" << std::endl;
-		return ;
-	}
 	fileName = _target;
 	fileName += "_shrubbery";
 	fdout.open(fileName.c_str(), std::fstream::out);
-	while (!fd.eof())
-	{
-		std::getline(fd, str);
-		if (fd.eof())
-			fdout << str;
-		else
-			fdout << str << std::endl;
-	}
+	fdout << "          .     .  .      +     .      .          ." << std::endl;
+	fdout << "     .       .      .     #       .           ." << std::endl;
+	fdout << "        .      .         ###            .      .      ." << std::endl;
+	fdout << "      .      .   \"#:. .:##\"##:. .:#\"  .      ." << std::endl;
+	fdout << "          .      . \"####\"###\"####\"  ." << std::endl;
+	fdout << "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." << std::endl;
+	fdout << "  .             \"#########\"#########\"        .        ." << std::endl;
+	fdout << "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       ."  << std::endl;
+	fdout << "     .     .  \"#######\"\"##\"##\"\"#######\"                  ." << std::endl;
+	fdout << "                .\"##\"#####\"#####\"##\"           .      ." << std::endl;
+	fdout << "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." << std::endl;
+	fdout << "      .     \"#######\"##\"#####\"##\"#######\"      .     ." << std::endl;
+	fdout << "    .    .     \"#####\"\"#######\"\"#####\"    .      ." << std::endl;
+	fdout << "            .     \"      000      \"    .     ." << std::endl;
+	fdout << "       .         .   .   000     .        .       ." << std::endl;
+	fdout << ".. .. ..................O000O........................ ......" << std::endl;	
 }

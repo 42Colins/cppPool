@@ -6,7 +6,7 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/02/20 15:42:45 by cprojean         ###   ########.fr        #
+#    Updated: 2024/03/15 16:39:43 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(NAME): $(OBJS)
 
 clean : 
 	rm -rf $(OBJS)
+	rm -rf *_shrubbery
 
 fclean : clean
 	rm -rf $(NAME)
