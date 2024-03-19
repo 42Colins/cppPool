@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:03:06 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/01 16:00:50 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:04:04 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int& Array<T>::operator [](int idx)
 {
 	if (idx < 0 || (unsigned int)idx > _n)
 		throw (OutOfBoundsException());
+	// std::cout << "At index " << idx << " sleeps the value : " << _array[idx] << std::endl;
     return (_array[idx]);
 }
 

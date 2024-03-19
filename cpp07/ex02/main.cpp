@@ -20,6 +20,7 @@ int main(int, char**)
     }
     try
     {
+        std::cout << "Test with -2 and 255" << std::endl;
         numbers[-2] = 0;
         numbers[755] = 0;
     }
@@ -29,7 +30,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[755] = 0;
+        numbers[10] = 555;
     }
     catch(const std::exception& e)
     {
