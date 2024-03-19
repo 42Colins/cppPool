@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:47:54 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 13:10:31 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:16:12 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AForm
 				~AForm(void);
 				AForm & operator= (const AForm &);
 				
-				virtual void execForm(void) const = 0;
+				virtual void execForm(Bureaucrat const & executor) const = 0;
 				void execute(Bureaucrat const & executor) const;
 
 				void beSigned(Bureaucrat *name);
@@ -41,7 +41,6 @@ class AForm
 				int getExec(void) const;
 				bool isSigned(void) const;
 				
-				void sign(void);
 				class GradeTooHighException : public std::exception
 				{
 					public :

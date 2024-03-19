@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:53:46 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 13:55:07 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:12:02 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ const char *AForm::GradeTooHighException::what() const throw()
 void	AForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExec())
-		execForm();
+		execForm(executor);
 	else
 		throw AForm::GradeTooLowException();
 }

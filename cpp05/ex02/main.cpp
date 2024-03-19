@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:09:36 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 14:58:35 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:34:02 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
 		ShrubberyCreationForm shrug("LeZeph");
 		Sam->signForm(shrug);
 		std::cout << shrug << std::endl;
-		Francois->executeForm(shrug);
+		Sam->executeForm(shrug);
 	}
 	catch(std::exception &e)
 	{

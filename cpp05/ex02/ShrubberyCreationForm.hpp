@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:38:56 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 14:06:42 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:11:46 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,17 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm & operator= (const ShrubberyCreationForm &);
 
-		void execForm(void) const;		
+		void execForm(Bureaucrat const & executor) const;
+		class GradeTooHighException : public std::exception
+				{
+					public :
+							virtual const char *what() const throw();
+				};
+				class GradeTooLowException : public std::exception
+				{
+					public :
+							virtual const char *what() const throw();
+				};
 };
 
 #endif
