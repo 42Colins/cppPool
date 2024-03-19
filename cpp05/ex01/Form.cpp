@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 17:53:46 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 12:48:33 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:41:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ Form::Form(void) : _name("Form"), _minSignGrade(1), _minExecGrade(1)
 Form::Form(std::string name, int minSign, int minExec) : _name(name), _minSignGrade(minSign), _minExecGrade(minExec)
 {
 	_isSigned = false;
-	// if (minSign < 1 || minExec < 1)
-	// 	throw Form::GradeTooLowException();
-	// else if (minSign > 150 || minExec > 150)
-	// 	throw Form::GradeTooHighException();
+	if (minSign < 1 || minExec < 1)
+		throw Form::GradeTooLowException();
+	else if (minSign > 150 || minExec > 150)
+		throw Form::GradeTooHighException();
 }
 
 Form::Form( const Form &toCopy ) : _name(toCopy._name), _minSignGrade(toCopy._minSignGrade), _minExecGrade(toCopy._minExecGrade)
@@ -36,17 +36,12 @@ Form::~Form(void)
 {
 }
 
-Form & Form::operator=( const Form &src ) : _name(src._name), _minSignGrade(src._minSignGrade), _minExecGrade(src._minExecGrade)
+Form & Form::operator=( const Form &src )
 {
 
 	this->_isSigned = src._isSigned;
 	return (*this);
 
-}
-
-std::string Form::getName(void) const
-{
-	return (_name);
 }
 
 int	Form::getSign(void) const 
@@ -89,8 +84,7 @@ const char *Form::GradeTooHighException::what() const throw()
 std::ostream &  operator<<( std::ostream & o, const Form &name )
 {
 
-	// std::cout << name.getName(); 
-    o << name.getName() << " form needs grade " << name.getSign() << " to be signed and a grade of " << name.getExec() << " to be executed." << std::endl;
+    o << "This form needs grade " << name.getSign() << " to be signed and a grade of " << name.getExec() << " to be executed." << std::endl;
 	if (name.isSigned() == true)
 		o << "This form is signed" << std::endl;
 	else
