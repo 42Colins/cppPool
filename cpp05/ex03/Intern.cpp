@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 15:57:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:59:53 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 
 Intern::Intern(void)
 {
-	_name = "Kanye";
-}
-
-Intern::Intern(std::string name)
-{
-	_name = name;
 }
 
 Intern::Intern(const Intern &toCopy)
@@ -34,6 +28,14 @@ Intern::Intern(const Intern &toCopy)
 
 Intern::~Intern(void)
 {
+}
+
+Intern & Intern::operator=( const Intern &src )
+{
+
+	(void) src;
+	return (*this);
+
 }
 
 AForm *Intern::makeForm(std::string nameForm, std::string target)

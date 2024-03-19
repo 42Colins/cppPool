@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:03:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/20 15:56:57 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:52:50 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ class AForm;
 class Intern
 {
 	private :
-		std::string _name;
 	public :
 		Intern(void);
-		Intern(std::string name);
 		Intern(const Intern &toCopy);
 		~Intern(void);
+		Intern & operator= (const Intern &);
 
 		AForm *makeForm(std::string nameForm, std::string target);
 };
