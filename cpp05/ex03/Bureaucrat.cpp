@@ -25,8 +25,10 @@ Bureaucrat::Bureaucrat( void )
 Bureaucrat::Bureaucrat( int grade, std::string name )
 {
 
-	if (grade > 150 || grade < 1)
-		return ;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade = grade;
 	this->_name = name;
 	std::cout << name << " was born with the grade of " << grade << std::endl;
@@ -103,7 +105,7 @@ void	Bureaucrat::signForm(AForm &form)
 void	Bureaucrat::executeForm(const AForm &form)
 {
 	if (getGrade() <= form.getExec())
-		form.execForm();
+		form.execForm(*this);
 	else
 		throw Bureaucrat::GradeTooLowException();
 }

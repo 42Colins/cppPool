@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:43:26 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/15 16:29:28 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:41:16 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( const ShrubberyCreatio
 
 }
 
-void ShrubberyCreationForm::execForm(void) const
+void ShrubberyCreationForm::execForm(Bureaucrat const & executor) const
 {
 	std::fstream	fd;
 	std::fstream	fdout;
 	std::string		str;
 	std::string		fileName;
 	
+	if (executor.getGrade() > this->getExec())
+		throw ShrubberyCreationForm::GradeTooLowException();
 	fileName = _target;
 	fileName += "_shrubbery";
 	fdout.open(fileName.c_str(), std::fstream::out);
@@ -68,4 +70,18 @@ void ShrubberyCreationForm::execForm(void) const
 	fdout << "            .     \"      000      \"    .     ." << std::endl;
 	fdout << "       .         .   .   000     .        .       ." << std::endl;
 	fdout << ".. .. ..................O000O........................ ......" << std::endl;	
+}
+
+const char * ShrubberyCreationForm::GradeTooLowException::what() const throw()
+{
+
+	return ("Sorry, grade too low\n");
+
+}
+
+const char *ShrubberyCreationForm::GradeTooHighException::what() const throw()
+{
+
+	return ("Sorry, grade too high\n");
+
 }
