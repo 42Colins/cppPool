@@ -6,18 +6,17 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/03/12 18:05:39 by cprojean         ###   ########.fr        #
+#    Updated: 2024/03/20 11:12:41 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = MutantStack
+NAME = btc
 
 CPP	 =	c++ -std=c++98 -g3
 
-SRCS =		main.cpp \
+SRCS =		BitcoinExchange.cpp \
 
-HEADER =	MutantStack.hpp \
-			# MutantStack.tpp
+HEADER =	BitcoinExchange.hpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
