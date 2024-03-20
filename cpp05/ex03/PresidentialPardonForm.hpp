@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:28:23 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/19 15:40:02 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:25:22 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class PresidentialPardonForm : public AForm
 					public :
 							virtual const char *what() const throw();
 				};
-				class GradeTooLowException : public std::exception
+		class GradeTooLowException : public std::exception
 				{
 					public :
 							virtual const char *what() const throw();

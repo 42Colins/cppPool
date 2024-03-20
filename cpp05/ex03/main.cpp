@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:09:36 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/15 16:38:08 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:28:58 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 
 	try
 	{
-		AForm *shrug = JohnDoe->makeForm("ShrubberyCreationForm", "brieuc");
+		AForm *shrug = JohnDoe->makeForm("Shrubbery Creation", "brieuc");
 		Sam->signForm(*shrug);
 		std::cout << *shrug << std::endl;
 		Francois->executeForm(*shrug);
@@ -116,7 +116,18 @@ int main(void)
 	try
 	{
 		Intern someRandomIntern;
-		AForm* rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+		AForm* rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
+		Sam->signForm(*rrf);
+		Sam->executeForm(*rrf);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Intern someRandomIntern;
+		AForm* rrf = someRandomIntern.makeForm("Tagranmere", "Bender");
 		Sam->signForm(*rrf);
 		Sam->executeForm(*rrf);
 	}

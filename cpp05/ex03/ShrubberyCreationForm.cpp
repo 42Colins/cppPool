@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:43:26 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/19 15:41:16 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/20 09:20:50 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,28 @@ void ShrubberyCreationForm::execForm(Bureaucrat const & executor) const
 	fileName = _target;
 	fileName += "_shrubbery";
 	fdout.open(fileName.c_str(), std::fstream::out);
-	fdout << "          .     .  .      +     .      .          ." << std::endl;
-	fdout << "     .       .      .     #       .           ." << std::endl;
-	fdout << "        .      .         ###            .      .      ." << std::endl;
-	fdout << "      .      .   \"#:. .:##\"##:. .:#\"  .      ." << std::endl;
-	fdout << "          .      . \"####\"###\"####\"  ." << std::endl;
-	fdout << "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." << std::endl;
-	fdout << "  .             \"#########\"#########\"        .        ." << std::endl;
-	fdout << "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       ."  << std::endl;
-	fdout << "     .     .  \"#######\"\"##\"##\"\"#######\"                  ." << std::endl;
-	fdout << "                .\"##\"#####\"#####\"##\"           .      ." << std::endl;
-	fdout << "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." << std::endl;
-	fdout << "      .     \"#######\"##\"#####\"##\"#######\"      .     ." << std::endl;
-	fdout << "    .    .     \"#####\"\"#######\"\"#####\"    .      ." << std::endl;
-	fdout << "            .     \"      000      \"    .     ." << std::endl;
-	fdout << "       .         .   .   000     .        .       ." << std::endl;
-	fdout << ".. .. ..................O000O........................ ......" << std::endl;	
+	if (!fdout)
+	{
+		std::cout << "Error while creating the tree" << std::endl;
+		return ;
+	}
+	fdout << "          .     .  .      +     .      .          ." 					<< std::endl;
+	fdout << "     .       .      .     #       .           ." 						<< std::endl;
+	fdout << "        .      .         ###            .      .      ." 				<< std::endl;
+	fdout << "      .      .   \"#:. .:##\"##:. .:#\"  .      ." 					<< std::endl;
+	fdout << "          .      . \"####\"###\"####\"  ." 							<< std::endl;
+	fdout << "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." 	<< std::endl;
+	fdout << "  .             \"#########\"#########\"        .        ." 			<< std::endl;
+	fdout << "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       ."  			<< std::endl;
+	fdout << "     .     .  \"#######\"\"##\"##\"\"#######\"                  ." 	<< std::endl;
+	fdout << "                .\"##\"#####\"#####\"##\"           .      ." 		<< std::endl;
+	fdout << "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." 			<< std::endl;
+	fdout << "      .     \"#######\"##\"#####\"##\"#######\"      .     ." 		<< std::endl;
+	fdout << "    .    .     \"#####\"\"#######\"\"#####\"    .      ." 			<< std::endl;
+	fdout << "            .     \"      000      \"    .     ." 					<< std::endl;
+	fdout << "       .         .   .   000     .        .       ." 					<< std::endl;
+	fdout << ".. .. ..................O000O........................ ......" 		<< std::endl;
+	fdout.close();
 }
 
 const char * ShrubberyCreationForm::GradeTooLowException::what() const throw()

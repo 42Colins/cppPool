@@ -76,6 +76,7 @@
         "ranges": "cpp",
         "array.hpp": "c",
         "*.tpp": "c",
-        "list": "cpp"
+        "list": "cpp",
+        "map": "cpp"
     }
 }

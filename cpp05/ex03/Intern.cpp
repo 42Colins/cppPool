@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:07:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/19 15:59:53 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:29:03 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include <algorithm>
+
 
 Intern::Intern(void)
 {
@@ -40,19 +42,22 @@ Intern & Intern::operator=( const Intern &src )
 
 AForm *Intern::makeForm(std::string nameForm, std::string target)
 {
-	int index = 3;
-	const std::string forms[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+	std::transform(nameForm.begin(), nameForm.end(), nameForm.begin(), toupper);
+	std::string newForm = nameForm += "FORM";
+	AForm *arr[3] = {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target)};
+	const std::string forms[3] = {"SHRUBBERY CREATIONFORM", "ROBOTOMY REQUESTFORM", "PRESIDENTIAL PARDONFORM"};
 	for (int i = 0; i < 3; i++)
 	{
 		if (forms[i].compare(nameForm) == 0)
-			index = i;
+			return (arr[i]);
 	}
-	AForm *createForm[] = {
-		new ShrubberyCreationForm(target),
-		new RobotomyRequestForm(target),
-		new PresidentialPardonForm(target)
-	};
-	if (index == 3)
-		return NULL;
-	return (createForm[index]);
+	throw Intern::NoSuchForm();
+	return (NULL);
+}
+
+const char * Intern::NoSuchForm::what() const throw()
+{
+
+	return ("Sorry, this form doesn't exist\n");
+
 }

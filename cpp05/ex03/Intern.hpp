@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:03:44 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/19 15:52:50 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:25:43 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ class Intern
 		Intern(const Intern &toCopy);
 		~Intern(void);
 		Intern & operator= (const Intern &);
+		
+		class NoSuchForm : public std::exception
+				{
+					public :
+							virtual const char *what() const throw();
+				};
 
 		AForm *makeForm(std::string nameForm, std::string target);
 };

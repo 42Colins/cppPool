@@ -96,6 +96,7 @@ void	Bureaucrat::nearlyFired( int grade )
 
 void	Bureaucrat::signForm(AForm &form)
 {
+
 	if (this->getGrade() <= form.getSign())
 		form.beSigned(this);
 	else
