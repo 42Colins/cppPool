@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:08:50 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/15 18:25:26 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:02:42 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <string>
 #include <cerrno>
 #include <climits>
+#include <stdio.h>
+
+int	multichars(std::string convert);
+int	multidots(std::string convert);
+int	ischar(std::string convert);
+
 
 ScalarConverter::ScalarConverter(void){}
 
@@ -95,6 +101,13 @@ void ScalarConverter::convert(const std::string convert)
 	}
 	else if (convert.find(".") != std::string::npos)
 	{
+		if (multidots(convert) == 1)
+		{
+			std::cout << "Inconvertible value, too many dots" << std::endl;
+			return ;
+		}
+		if (multichars(convert) == 1)
+			return ;
 		if (*(convert.end() - 1) == 'f')
 		{
 			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
@@ -132,6 +145,10 @@ void ScalarConverter::convert(const std::string convert)
 	}
 	else
 	{
+		if (ischar(convert))
+		{
+			return ;
+		}
 		long err = strtol(string, NULL, 10);
 		(void) err;
 		if (err > INT_MAX || err < INT_MIN)
@@ -154,4 +171,63 @@ void ScalarConverter::convert(const std::string convert)
 			std::cout << "double : " << static_cast<double>(atoi(string)) << ".0" << std::endl;
 		}
 	}
+}
+
+int	multidots(std::string convert)
+{
+	const char *str = convert.c_str();
+	int	index = 0;
+	int	count = 0;
+	while (str[index])
+	{
+		if (str[index] == '.')
+			count++;
+		index++;
+	}
+	if (count > 1)
+		return (1);
+	return (0);
+}
+
+int	multichars(std::string convert)
+{
+	const char *str = convert.c_str();
+	int	index = 0;
+	int	count = 0;
+	while (str[index])
+	{
+		if (isalpha(str[index]))
+		{
+			if (str[index] == 'f')
+				count++;
+			else
+			{
+				std::cout << "Inconvertible value" << std::endl;
+				return (1);				
+			}
+		}
+		index++;
+	}
+	if (count > 1)
+	{
+		std::cout << "Inconvertible value" << std::endl;
+		return (1);
+	}
+	return (0);
+}
+
+int	ischar(std::string convert)
+{
+	const char *str = convert.c_str();
+	int index = 0;
+	while (str[index])
+	{
+		if (isalpha(str[index]))
+		{
+			std::cout << "Inconvertible value" << std::endl;
+			return (1);
+		}
+		index++;
+	}
+	return (0);
 }
