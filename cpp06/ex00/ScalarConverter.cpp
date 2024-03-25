@@ -62,44 +62,64 @@ void ScalarConverter::convert(const std::string convert)
 		std::cout << "double : " << minf << std::endl;
 		std::cout << "float : " << minff << std::endl;
 	}
-	else if (strlen(string) == 1)
-	{	
-		if (isalpha(string[1]))
+	double err = strtod(string, NULL);
+	(void) err;
+	if (errno == ERANGE)
+	{
+		std::cout << "The value overflowed" << std::endl;
+		return ;
+	}
+	long oflow = strtol(string, NULL, 10);
+	if (strlen(string) == 1)
+	{
+		if (isprint(string[1]) && !isspace(string[1]))
 		{
-			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
+			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0) //Double
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(string[0]) << '\'' << std::endl;
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
 				std::cout << "int : " << static_cast<int>(string[0]) << std::endl;
 				std::cout << "float : " << static_cast<float>(string[0]) << "f" << std::endl;
 				std::cout << "double : " << static_cast<double>(string[0]) << std::endl;
 			}
 			else
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(string[0]) << '\'' << std::endl;
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
 				std::cout << "int : " << static_cast<int>(string[0]) << std::endl;
 				std::cout << "float : " << static_cast<float>(string[0]) << ".0" << "f" << std::endl;
 				std::cout << "double : " << static_cast<double>(string[0]) << ".0" << std::endl;
 			}
 		}
-		else
+		else //Int
 		{
 			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+				if (isspace(string[1]))
+					std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
 				std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
 				std::cout << "float : " << static_cast<float>(atoi(string)) << "f" << std::endl;			
 				std::cout << "double : " << static_cast<double>(atoi(string)) << std::endl;
 			}
 			else
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+				if (isspace(string[1]))
+					std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
 				std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
 				std::cout << "float : " << static_cast<float>(atoi(string)) << ".0" << "f" << std::endl;
 				std::cout << "double : " << static_cast<double>(atoi(string)) << ".0" << std::endl;
 			}
 		}
 	}
-	else if (convert.find(".") != std::string::npos)
+	else if (convert.find(".") != std::string::npos) //Floats
 	{
 		if (multidots(convert) == 1)
 		{
@@ -112,33 +132,79 @@ void ScalarConverter::convert(const std::string convert)
 		{
 			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
 			{
-				std::cout << "char : " << '\'' <<  static_cast<char>(strtof(string, NULL)) << '\'' << std::endl;
-				std::cout << "int : " << static_cast<int>(strtof(string, NULL)) << std::endl;
-				std::cout << "float : " << static_cast<float>(strtof(string, NULL)) << "f" << std::endl;				
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl; 
+				if (oflow > INT_MAX || oflow < INT_MIN)
+				{
+					std::cout << "int : value overflowed" << std::endl;
+					std::cout << "float : value overflowed" << std::endl;
+				}
+				else
+				{
+					std::cout << "int : " << static_cast<int>(strtof(string, NULL)) << std::endl;
+					std::cout << "float : " << static_cast<float>(strtof(string, NULL)) << "f" << std::endl;				
+				}
 				std::cout << "double : " << static_cast<double>(strtof(string, NULL)) << std::endl;
 			}
 			else
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(strtof(string, NULL)) << '\'' << std::endl;
-				std::cout << "int : " << static_cast<int>(strtof(string, NULL)) << std::endl;
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtof(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
+				if (oflow > INT_MAX || oflow < INT_MIN)
+				{
+					std::cout << "int : value overflowed" << std::endl;
+					std::cout << "float : value overflowed" << std::endl;
+				}
+				else
+				{
+					std::cout << "int : " << static_cast<int>(strtof(string, NULL)) << std::endl;
+					std::cout << "float : " << static_cast<float>(strtof(string, NULL)) << ".0" << "f" << std::endl;
+				}
 				std::cout << "float : " << static_cast<float>(strtof(string, NULL)) << ".0" << "f" << std::endl;
 				std::cout << "double : " << static_cast<double>(strtof(string, NULL)) << ".0" << std::endl;
 			}
 		}
 		else
 		{
-		if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
+			if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
 			{
-				std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
-				std::cout << "int : " << static_cast<int>(strtod(string, NULL)) << std::endl;
-				std::cout << "float : " << static_cast<float>(strtod(string, NULL)) << "f" << std::endl;				
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
+				if (oflow > INT_MAX || oflow < INT_MIN)
+				{
+					std::cout << "int : value overflowed" << std::endl;
+					std::cout << "float : value overflowed" << std::endl;
+
+				}
+				else
+				{
+					std::cout << "int : " << static_cast<int>(strtod(string, NULL)) << std::endl;
+					std::cout << "float : " << static_cast<float>(strtod(string, NULL)) << "f" << std::endl;				
+				}
 				std::cout << "double : " << static_cast<double>(strtod(string, NULL)) << std::endl;
 			}
 			else
 			{
-				std::cout << "char : " << '\'' << static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
-				std::cout << "int : " << static_cast<int>(strtod(string, NULL)) << std::endl;
-				std::cout << "float : " << static_cast<float>(strtod(string, NULL)) << ".0" << "f" << std::endl;
+				if (isprint(static_cast<char>(strtod(string, NULL))))
+					std::cout << "char : " << '\'' <<  static_cast<char>(strtod(string, NULL)) << '\'' << std::endl;
+				else
+					std::cout << "char : impossible" << std::endl;
+				if (oflow > INT_MAX || oflow < INT_MIN)
+				{
+					std::cout << "int : value overflowed" << std::endl;
+					std::cout << "float : value overflowed" << std::endl;
+				}
+				else
+				{
+					std::cout << "int : " << static_cast<int>(strtod(string, NULL)) << std::endl;
+					std::cout << "float : " << static_cast<float>(strtod(string, NULL)) << ".0" << "f" << std::endl;
+				}
 				std::cout << "double : " << static_cast<double>(strtod(string, NULL)) << ".0" << std::endl;
 			}
 		}
@@ -149,24 +215,29 @@ void ScalarConverter::convert(const std::string convert)
 		{
 			return ;
 		}
-		long err = strtol(string, NULL, 10);
-		(void) err;
-		if (err > INT_MAX || err < INT_MIN)
-		{
-			std::cout << "The value overflowed" << std::endl;
-			return ;
-		}
 		if (static_cast<double>(string[0]) - static_cast<int>(string[0]) != 0)
 		{
-			std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
-			std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
-			std::cout << "float : " << static_cast<float>(atoi(string)) << "f" << std::endl;			
+			if (isspace(string[1]))
+				std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+			else
+				std::cout << "char : impossible" << std::endl;
+			if (oflow > INT_MAX || oflow < INT_MIN)
+				std::cout << "int : value overflowed" << std::endl;
+			else
+				std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
+			std::cout << "float : " << static_cast<float>(atoi(string)) << "f" << std::endl;
 			std::cout << "double : " << static_cast<double>(atoi(string)) << std::endl;
 		}
 		else
 		{
-			std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
-			std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
+			if (isspace(string[1]))
+				std::cout << "char : " << '\'' << static_cast<char>(atoi(string)) << '\'' << std::endl;
+			else
+				std::cout << "char : impossible" << std::endl;
+			if (oflow > INT_MAX || oflow < INT_MIN)
+				std::cout << "int : value overflowed" << std::endl;
+			else
+				std::cout << "int : " << static_cast<int>(atoi(string)) << std::endl;
 			std::cout << "float : " << static_cast<float>(atoi(string)) << ".0" << "f" << std::endl;
 			std::cout << "double : " << static_cast<double>(atoi(string)) << ".0" << std::endl;
 		}
