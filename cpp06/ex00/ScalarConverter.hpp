@@ -17,9 +17,11 @@
 
 class ScalarConverter
 {	
-	public :
+	private :
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &toCopy);
+
+	public :
 		~ScalarConverter(void);
 		ScalarConverter & operator= (const ScalarConverter &);
 		static void	convert(const std::string convert);

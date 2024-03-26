@@ -20,14 +20,11 @@ int main(int argc, char **argv)
 		std::cout << "Wrong arguments !" << std::endl;
 		return 1;
 	}
-	else
-	{
-		Data *value = new Data;
-		value->str = argv[2];
-		Serializer maths;
-		std::cout << value << std::endl;
-		Data *newVal = maths.deserialize(maths.serialize(value));
-		std::cout << newVal << std::endl;
-	}
+	Data *value = new Data;
+	value->str = argv[2];
+	std::cout << value << std::endl;
+	Data *newVal = Serializer::deserialize(Serializer::serialize(value));
+	std::cout << newVal << std::endl;
+	delete value;
 	return 0;
 }

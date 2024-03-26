@@ -12,19 +12,10 @@
 
 #include "Base.hpp"
 
-int main(int argc, char **argv)
-{
-	(void) argv;
-	if (argc != 2)
-	{
-		std::cout << "Wrong arguments !" << std::endl;
-		return 1;
-	}
-	else
-	{
-		Base *newBase = generate();
-		identify(newBase);
-		identify(*newBase);
-	}
+int main(void)
+{	
+	Base *newBase = generate();
+	identify(newBase);
+	identify(*newBase);
 	return 0;
 }
