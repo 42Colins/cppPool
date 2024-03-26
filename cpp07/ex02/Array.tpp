@@ -32,7 +32,7 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::~Array(void)
 {
-	// delete[] _array;
+	delete[] _array;
 }
 
 template <typename T>
