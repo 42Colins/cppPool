@@ -21,12 +21,13 @@ class Array
 	private :
 		unsigned int _n;
 		T *_array;
+
 	public :
 		Array(void);	
 		~Array(void);	
 		Array(const Array &toCopy);	
 		Array(unsigned int n);
- 		Array & operator= (const Array &);
+ 		Array &operator=(const Array &);
 		
 		unsigned int size(void);
 	    int& operator [](int idx);

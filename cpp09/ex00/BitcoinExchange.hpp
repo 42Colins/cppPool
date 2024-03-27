@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <map>
+# include <sstream>
+
+# define to_string(value) static_cast<const std::ostringstream&>((\
+std::ostringstream() << std::dec << value)).str()
 
 class BitcoinExchange 
 {
@@ -22,6 +26,6 @@ class BitcoinExchange
 	
 	public :
 		
-}
+};
 
 #endif

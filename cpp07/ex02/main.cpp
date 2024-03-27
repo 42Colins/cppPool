@@ -13,11 +13,11 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
     }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    // //SCOPE
+    // {
+    //     Array<int> tmp = numbers;
+    //     // Array<int> test(numbers);
+    // }
     try
     {
         std::cout << "Test with -2 and 255" << std::endl;
@@ -44,9 +44,9 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
+    // for (int i = 0; i < MAX_VAL; i++)
+    // {
+    //     numbers[i] = rand();
+    // }
     return 0;
 }

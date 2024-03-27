@@ -19,7 +19,7 @@ template <typename T>
 Array<T>::Array(void)
 {
 	_n = 0;
-	_array = new T[0];
+	_array = NULL;
 }
 
 template <typename T>
@@ -32,7 +32,8 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::~Array(void)
 {
-	delete[] _array;
+	std::cout << "ICI" << std::endl;
+	delete[] this->_array;
 }
 
 template <typename T>
@@ -45,10 +46,13 @@ Array<T>::Array(const Array &toCopy)
 }
 
 template <typename T>
-Array<T> & Array<T>::operator= (const Array<T> &cpy)
+Array<T> & Array<T>::operator= (const Array &cpy)
 {
+	delete[] _array;
 	_n = cpy._n;
 	_array = new T[_n];
+	for (int i = 0; i < _n; i++)
+		_array[i] = cpy._array[i];
 	return (*this);
 }
 
@@ -61,9 +65,8 @@ unsigned int Array<T>::size(void)
 template <typename T>
 int& Array<T>::operator [](int idx)
 {
-	if (idx < 0 || (unsigned int)idx > _n)
+	if (idx < 0 || (unsigned int)idx >= _n)
 		throw (OutOfBoundsException());
-	// std::cout << "At index " << idx << " sleeps the value : " << _array[idx] << std::endl;
     return (_array[idx]);
 }
 
