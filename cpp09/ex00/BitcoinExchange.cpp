@@ -6,57 +6,17 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/20 14:37:42 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:45:15 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <map>
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
-#include <locale> 
-#include <stdlib.h> 
 #include "BitcoinExchange.hpp"
-
-bool	isLeapYear(int year);
-std::map<std::string, double> filldata(std::map<std::string, double> data, std::fstream &dataBase);
-void printMap(std::map<std::string, double> data);
-int	checkDate(std::string str);
-int	exchange(std::map<std::string, double> data, std::fstream &input);
-void	findInData(std::string str, std::map<std::string, double> data);
-std::string lowerDate(std::string str);
-
-int main(int argc, char **argv)
-{
-	(void) argc;
-	(void) argv;
-	std::fstream	dataBase;
-	std::fstream	input;
-	std::map<std::string, double> data; 
-	
-	dataBase.open("data.csv", std::fstream::in);
-	if (dataBase.fail())
-	{
-		std::cout << "Problem opening the database" << std::endl;
-		return 1;
-	}
-	input.open("input.txt", std::fstream::in);
-	if (input.fail())
-	{
-		std::cout << "Problem while opening the input file" << std::endl;
-		return 1;
-	}
-	data = filldata(data, dataBase);
-	if (exchange(data, input) == 1)
-		return (1);
-	return 0;
-}
 
 int	exchange(std::map<std::string, double> data, std::fstream &input)
 {
 	int index = 0;
 	std::string str;
+	std::string temp;
 	(void) data;
 	while (!input.eof())
 	{
@@ -76,14 +36,16 @@ int	exchange(std::map<std::string, double> data, std::fstream &input)
 			index++;
 			continue ;
 		}
-		findInData(str, data);
+		findInData(str, data, 0, temp);
 		index++;
 	}
 	return (0);
 }
 
-void	findInData(std::string str, std::map<std::string, double> data)
+void	findInData(std::string str, std::map<std::string, double> data, int index, std::string temp)
 {
+	if (index == 0)
+		temp = str;
 	std::string date = str.substr(0, 10);
 	long err = strtol(str.substr(13, str.size()).c_str(), NULL, 10);
 	(void) err;
@@ -103,10 +65,15 @@ void	findInData(std::string str, std::map<std::string, double> data)
 	if (!tmp)
 	{
 		str = lowerDate(str);
-		findInData(str, data);
+		if (str.empty())
+		{
+			std::cout << "The year should be in the range 2009-2023" << std::endl;
+			return ;
+		}
+		findInData(str, data, 1, temp);
 		return ;
 	}
-	std::cout << date << " => " << value << " <==> " << tmp * value << std::endl;
+	std::cout << temp << " => " << value << " <==> " << tmp * value << std::endl;
 }
 
 std::string lowerDate(std::string str)
@@ -142,6 +109,13 @@ std::string lowerDate(std::string str)
 		day = day - 1;
 	
 	end :
+	if (year > 2022)
+		year = 2022;
+	else if (year < 2009)
+	{
+		std::string newOne;
+		return (newOne);
+	}
 	std::string y = to_string(year);
 	std::string m = to_string(month);
 	std::string d = to_string(day);

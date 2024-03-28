@@ -6,7 +6,7 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/03/28 13:45:57 by cprojean         ###   ########.fr        #
+#    Updated: 2024/03/20 11:12:41 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = btc
 
 CPP	 =	c++ -std=c++98 -g3
 
-SRCS =		main.cpp \
-			BitcoinExchange.cpp \
+SRCS =		BitcoinExchange.cpp \
 
 HEADER =	BitcoinExchange.hpp \
 

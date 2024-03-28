@@ -32,8 +32,7 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::~Array(void)
 {
-	std::cout << "ICI" << std::endl;
-	delete[] this->_array;
+main.cpp, RPN.{cpp, hp	delete[] this->_array;
 }
 
 template <typename T>
