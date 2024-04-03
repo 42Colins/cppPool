@@ -1,10 +1,15 @@
 #include "Easyfind.tpp"
 #include <iostream>
+#include <vector>
 
 int main (void)
 {
-	int	tab[10] = {5, 3, 7, 1, 9, 2, 0, 6, 4, 8};
-	
-	int *pos = Easyfind(tab, 9);
-	std::cout << *pos << std::endl;
+	std::vector<int> tab;
+    srand(time(NULL));
+    for (int i = 0; i < 10000; i++)
+    {
+        const int value = rand() % 100;
+        tab.push_back(value);
+    }	
+	std::cout << *Easyfind(tab, 9) << std::endl;
 }

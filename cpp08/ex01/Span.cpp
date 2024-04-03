@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:34 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/12 15:46:42 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:39:04 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Span::Span(const Span &toCopy)
 	_max = toCopy._max;
 	_nbr = toCopy._nbr;
 	std::list<int> tmp = this->getArray();
-	for (std::list<int>::iterator it = this->getArray().begin(); it != this->getArray().end(); ++it)
+	for (std::list<int>::iterator it = this->getArray().begin(); it != this->getArray().end(); it++)
 		_arr.push_back(*it);
 }
 
@@ -40,7 +40,8 @@ Span & Span::operator=(const Span &src)
 	_max = src._max;
 	_nbr = src._nbr;
 	std::list<int> lst = this->getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)		_arr.push_back(*it);
+	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)
+		_arr.push_back(*it);
 	return (*this);
 }
 
