@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 13:13:57 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/12 15:50:48 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:38:39 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int main(void)
 	std::list<int> lst = newOne.getArray();
 	std::cout << newOne << std::endl;
 	int sspan = newOne.shortestSpan();
-	std::cout << sspan << std::endl;
+	std::cout << "The shortest foundable span is " << sspan << std::endl;
 	sspan = newOne.longestSpan();
-	std::cout << sspan << std::endl;
+	std::cout << "The longest foundable span is "<< sspan << std::endl;
 	
 }

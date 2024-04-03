@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:10:57 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/12 18:15:07 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/03 19:53:26 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <deque>
 # include <stack>
 # include <iterator>
-# include "MutantStack.tpp"
 
 template <typename T, class container=std::deque<T> >
 class MutantStack : public std::stack<T>
