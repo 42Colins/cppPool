@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:45:34 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/03 19:47:46 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:07:12 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ Span::Span(const Span &toCopy)
 {
 	_max = toCopy._max;
 	_nbr = toCopy._nbr;
-	std::list<int> tmp = this->getArray();
-	for (std::list<int>::iterator it = tmp.begin(); it != tmp.end(); it++)
+	std::vector<int> tmp = this->getArray();
+	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); it++)
 		_arr.push_back(*it);
 }
 
@@ -39,14 +39,16 @@ Span & Span::operator=(const Span &src)
 {
 	_max = src._max;
 	_nbr = src._nbr;
-	std::list<int> lst = this->getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)
+	std::vector<int> lst = this->getArray();
+	for (std::vector<int>::iterator it = lst.begin(); it != lst.end(); it++)
 		_arr.push_back(*it);
 	return (*this);
 }
 
 void Span::addNumber(int value)
 {
+	if (_nbr >= _max)
+		throw std::runtime_error("Too many elements for the size of the list");
 	_arr.push_back(value);
 	_nbr = _nbr + 1;
 }
@@ -57,10 +59,12 @@ int Span::shortestSpan(void)
 	int tmp = 0;
 	int span;
 	int shortSpan = 2147483647;
-	this->_arr.sort();
 	int	index = 0;
-	std::list<int> lst = this->getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
+	std::vector<int> lst = this->getArray();
+	if (lst.size() < 2)
+		throw std::runtime_error("Needs more than one element in the list");
+	std::sort(lst.begin(), lst.end());
+	for (std::vector<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
 		if (index == 0)
 		{
 			tmp = 0;
@@ -68,8 +72,8 @@ int Span::shortestSpan(void)
 		}
 		else
 		{
-			value = tmp;
-			tmp = *it;
+			tmp = value;
+			value = *it;
 		}
 		span = value - tmp;
 		if (span < 0)
@@ -83,6 +87,8 @@ int Span::shortestSpan(void)
 
 int Span::longestSpan(void)
 {
+	if (this->getArray().size() < 2)
+		throw std::runtime_error("Needs more than one element in the list");
 	int max = this->max();
 	int min = this->min();
 	return (max - min);
@@ -91,8 +97,8 @@ int Span::longestSpan(void)
 int Span::min(void)
 {
 	int value = 2147483647;
-	std::list<int> lst = this->getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
+	std::vector<int> lst = this->getArray();
+	for (std::vector<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
 		if (*it < value)
 			value = *it;
 	}
@@ -102,8 +108,8 @@ int Span::min(void)
 int Span::max(void)
 {
 	int value = 0;
-	std::list<int> lst = this->getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
+	std::vector<int> lst = this->getArray();
+	for (std::vector<int>::iterator it = lst.begin(); it != lst.end(); it++)	{
 		if (*it > value)
 			value = *it;
 	}
@@ -126,7 +132,7 @@ int	Span::getMax(void)
 	return (_max);
 }
 
-std::list<int> Span::getArray(void)
+std::vector<int> Span::getArray(void)
 {
 	return (_arr);
 }
@@ -136,8 +142,8 @@ std::ostream &  operator<<( std::ostream & o, Span &name)
 
 	// std::cout << name.getName();
 	int	index = 0;
-	std::list<int> lst = name.getArray();
-	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); it++)
+	std::vector<int> lst = name.getArray();
+	for (std::vector<int>::iterator it = lst.begin(); it != lst.end(); it++)
 	{
 		o << index << " : " << *it << std::endl;
 		index++; 

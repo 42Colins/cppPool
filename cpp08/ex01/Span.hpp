@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:33:14 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/03 19:42:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:07:26 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <math.h>
-# include <list>
+# include <vector>
 # include <algorithm>
 
 class Span
@@ -23,7 +23,7 @@ class Span
 	private :
 		int	_max;
 		int _nbr;
-		std::list<int> _arr;
+		std::vector<int> _arr;
 		
 	public :
 		Span(void);
@@ -38,7 +38,7 @@ class Span
 		int min(void);
 		int max(void);
 		int getMax(void);
-		std::list<int> getArray(void);
+		std::vector<int> getArray(void);
 };
 
 std::ostream &  operator<<( std::ostream & o, Span &name);
