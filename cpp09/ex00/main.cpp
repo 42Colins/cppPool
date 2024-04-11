@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:44:52 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/29 14:45:47 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:41:31 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,4 @@ int main(int argc, char **argv)
 	if (exchange(data, input) == 1)
 		return (1);
 	return 0;
-}A first easy exercise is the way to start off on the right foot.
+}

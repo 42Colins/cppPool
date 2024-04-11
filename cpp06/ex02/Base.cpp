@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 17:44:07 by cprojean          #+#    #+#             */
-/*   Updated: 2024/02/28 18:19:00 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/10 13:50:07 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,14 @@ void	identify(Base &p)
 		std::cout << "Base has type C !" << std::endl;
 	} catch (std::exception &e)	{std::cout << e.what() << std::endl;}
 }
+
+
+int main() {
+	char str[40];
+	char *str_ptr = &str;
+	char* password = "grwgwegew";
+	
+	read(0, str, 50);
+	printf("%s\n", str_ptr);
+}
+

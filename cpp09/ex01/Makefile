@@ -6,17 +6,18 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/03/20 11:12:41 by cprojean         ###   ########.fr        #
+#    Updated: 2024/04/10 15:03:50 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = ReversePolishNotation
 
 CPP	 =	c++ -std=c++98 -g3
 
-SRCS =		BitcoinExchange.cpp \
+SRCS =		main.cpp \
+			RPN.cpp
 
-HEADER =	BitcoinExchange.hpp \
+HEADER =	RPN.hpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

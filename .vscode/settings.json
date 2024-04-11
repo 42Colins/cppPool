@@ -77,6 +77,8 @@
         "array.hpp": "c",
         "*.tpp": "c",
         "list": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "numbers": "cpp",
+        "cinttypes": "cpp"
     }
 }

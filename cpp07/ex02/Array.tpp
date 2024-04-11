@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 19:03:06 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/19 11:04:04 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:05:25 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::~Array(void)
 {
-main.cpp, RPN.{cpp, hp	delete[] this->_array;
+	delete[] this->_array;
 }
 
 template <typename T>
