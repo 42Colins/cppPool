@@ -1,2 +1,2 @@
 Here's a quick introduction to object oriented programmation.
-NOTE : You can't do anything with those exercices
+NOTE : You can't do shit with those exercices
