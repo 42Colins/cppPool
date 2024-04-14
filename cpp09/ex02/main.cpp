@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/12 16:01:13 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:18:57 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int main(int argc, char **argv)
 		std::cout << "Error, not enough values to sort !" << std::endl;
 		return (-1);
 	}
+	int i = 0;
 	std::vector<std::pair<int, int> > myVec = fillVector(argv, argc - 1);
-	std::cout << "BEFORE : " << std::endl << std::endl;
+	std::cout << "START : " << std::endl << std::endl;
 	printVector(myVec);
-	myVec = startSorting(myVec);
+	std::vector<int> finalOne = startSorting(myVec, i);
 	std::cout <<  std::endl << "AFTER : " << std::endl << std::endl;
-	printVector(myVec);
+	printVector(finalOne);
 	// std::cout << std::endl <<  "AFTER 1st sort : " << std::endl << std::endl;
 	// myVec = firstSort(myVec);
 }

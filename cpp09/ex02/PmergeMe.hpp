@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/12 18:32:43 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/14 15:42:28 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,17 @@
 # include <stdlib.h>
 
 std::vector<std::pair<int, int> > fillVector(char **argv, int size);
-std::vector<std::pair<int, int> > startSorting(std::vector<std::pair<int, int> >myVector);
+std::vector<int> startSorting(std::vector<std::pair<int, int> >myVector, int i);
 std::vector<std::pair<int, int> > firstSort(std::vector<std::pair<int, int> >myVector);
-std::vector<std::pair<int, int> > continueSorting(std::vector<std::pair<int, int> >myVector);
-std::vector<std::pair<int, int> > insertValues(std::vector<std::pair<int, int> >myVector);
+std::vector<std::pair<int, int> > continueSorting(std::vector<std::pair<int, int> >myVector, int i);
+std::vector<int> insertValues(std::vector<std::pair<int, int> >myVector, std::vector<std::pair<int, int> >newVect, int i);
+std::vector<int> vectPairToInt(std::vector<std::pair<int, int> > myVector);
+
+std::vector<int> smallerVector(std::vector<int> myVec, int mode, int pos);
+std::vector<int> shiftVector(std::vector<int> myVec, int value, int pos);
+int binarySearch(int value, std::vector<int> myVector);
+
 void printVector(std::vector<std::pair<int, int> > myVec);
+void printVector(std::vector<int> myVec);
 
 #endif
