@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/16 14:45:31 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:55:16 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	int i = 0;
 	std::vector<std::pair<int, int> > myVec = fillVector(argv, argc - 1);
 	std::cout << "START : " << std::endl << std::endl;
-	printVector(myVec);
+	// printVector(myVec);
 	std::vector<int> finalOne;
 	finalOne = startSorting(finalOne, myVec, i, argc - 1);
 	std::cout <<  std::endl << "AFTER : " << std::endl << std::endl;
