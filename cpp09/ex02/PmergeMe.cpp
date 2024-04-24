@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/18 15:14:17 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:15:22 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 		if (it->first > it->second)
 			std::swap(it->first, it->second);
 	}
-	printVector(myVector);
+	// printVector(myVector);
 	if (myVector.size() != 1)
 	{
 		int tmp = 0;
@@ -71,94 +71,68 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 			returned = startSorting(returned, newVect, i + 1, size);
 	}
 	std::cout << "MYVECTOR SIZE " << myVector.size() << std::endl << std::endl;
-	if (myVector.size() == 1 || myVector.size() == 2 || myVector.size() == 3)
-	{
-		printVector(myVector);
-		if (myVector[1].second < myVector[0].second)
-			std::swap(myVector[0].first, myVector[0].second);
-		printVector(myVector);
-	}
+	// if (myVector.size() == 1)
+	// {
+	// 	// printVector(myVector);
+	// 	if (myVector[0].first < myVector[0].second)
+	// 		std::swap(myVector[0].first, myVector[0].second);
+	// 	// printVector(myVector);
+	// }
 	if (returned.size() == 0 && newVect.size() == 1)
 	{
+		// printVector(newVect);
+		// printVector(myVector);
 		returned = insertValues(newVect, myVector, i);
-		return returned;
+		return (returned);
 	}
 	if (returned.size() != 0 && returned.size() < size)
 		returned = insertValues(returned, myVector, i, size);
 	return (returned);
 }
 
-
-// std::vector<int> startSorting(std::vector<std::pair<int, int> >myVector, int i)
-// {
-// 	std::vector<std::pair<int, int> > newVect = myVector;
-// 	std::vector<int> returned;
-// 	for (std::vector<std::pair<int, int> >::iterator it = myVector.begin(); it != myVector.end(); it++)
-// 	{
-// 		if (it->first > it->second)
-// 		{
-// 			int tmp = it->first;
-// 			it->first = it->second;
-// 			it->second = tmp;
-// 		}
-// 	}
-// 	if (myVector.size() != 1)
-// 	{
-// 		newVect = continueSorting(myVector, i);
-// 		// std::cout << "continueSorting returned on cycle : " << i << " vect size : " << newVect.size() << std::endl;
-// 		// printVector(newVect);
-// 	}
-// 	if (newVect.size() == 1)
-// 		returned = insertValues(newVect, myVector, i);
-// 	std::cout << "Cycle n : " << i << " returned is full" << std::endl << std::endl;
-// 	printVector(returned);
-// 	if (returned.size() != 0)
-// 	{
-// 		printVector(returned);
-// 		printVector(myVector);
-// 		returned = insertValues(returned, myVector, i);
-// 	}
-// 	return (returned);
-// }
-
-// std::vector<std::pair<int, int> > continueSorting(std::vector<std::pair<int, int> >myVector, int i)
-// {
-// 	std::vector<std::pair<int, int> > newVect;
-// 	int tmp = 0;
-// 	int count = 0;
-// 	std::pair<int, int> Benoit(0, 0);
-// 	// printVector(myVector);
-// 	for (std::vector<std::pair<int, int> >::iterator it = myVector.begin(); it != myVector.end(); it++)
-// 	{
-// 		if (count % 2 == 0)
-// 			tmp = it->second;
-// 		if (count % 2 == 1)
-// 		{
-// 			Benoit = std::make_pair(tmp, it->second);
-// 			newVect.push_back(Benoit);
-// 		}
-// 		count++;
-// 	}
-// 	if (newVect.size() > 1)
-// 		startSorting(newVect, i + 1);
-// 	// std::cout << "Cycle n : " << i << " BEFORE RETURNING, NEWVECT IS : " <<  std::endl;
-// 	// printVector(newVect);
-// 	return (newVect);
-// }
-
 std::vector<int> insertValues(std::vector<std::pair<int, int> >myVector, std::vector<std::pair<int, int> >oldVect, int i)
 {
 	std::cout << "Cycle number : "<< i << " STARTING TO INSERT VALUES !!!!" << std::endl << std::endl;
 	// if ()
+	int index = 1;
+	int count = 0;
+	int size = oldVect.size();
+	// printVector(myVector);
+	printVector(oldVect);
+	if (size  % 2 == 1 || size == 1 || (size / 2) % 2 == 1)
+		count = 1;
+	std::cout << "size : " << size << " count : " << count << std::endl;
 	std::vector<int> returned;
 	returned = vectPairToInt(myVector);
 	// printVector(returned);
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
-		std::cout << "elem : " << it->first << "Needs to be inserted at index : " << binarySearch(it->first, returned) << std::endl;
+		if (it->first == 2147483647)
+		{
+			index++;
+			continue;
+		}
+		std::cout << "pair pair elem : " << it->first << "Needs to be inserted at index : " << binarySearch(it->first, returned) << std::endl;
 		returned = shiftVector(returned, it->first, binarySearch(it->first, returned));
+		if (index == size && count == 1)
+		{
+			std::cout << "elem : " << it->second << "Needs to be inserted at index : " << binarySearch(it->second, returned) << std::endl;
+			std::cout << "elem : " << it->second << std::endl;
+			std::vector<int>::iterator itt = returned.end();
+			itt--;
+			if (it->second == 2147483647 || it->second == *itt)
+			{
+				index++;
+				continue;
+			}
+			if (returned[binarySearch(it->second, returned)] < it->second)
+				returned.push_back(it->second);
+			else
+				returned = shiftVector(returned, it->second, binarySearch(it->second, returned));
+		}
+		index++;
 	}
-	std::cout << "After shifting" << std::endl;
+	std::cout << "After shifting " << *returned.end() << std::endl;
 	printVector(returned);
 	return (returned);
 }
@@ -167,23 +141,40 @@ std::vector<int> insertValues(std::vector<int>returned, std::vector<std::pair<in
 {
 	int count = 0;
 	int index = 1;
-	std::cout << "size : " << size << "size / 2" << size / 2 << " " << std::endl;
-	if ((size / 2) % 2 == 1)
+	size = oldVect.size();
+	if (size  % 2 == 1 || size == 1 || (size / 2) % 2 == 1)
 		count = 1;
+	std::cout << "size : " << size << " " << std::endl;
+	printVector(oldVect);
 	std::cout << "We're on cycle number " << i << std::endl;
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
-		std::cout << "elem : " << it->first << "Needs to be inserted at index : " << binarySearch(it->first, returned) << std::endl;
-		returned = shiftVector(returned, it->first, binarySearch(it->first, returned));
-		if (index == size / 2 && count == 1)
+		std::cout << "elem : " << it->first << "Needs to be inserted at index : " << binarySearch(it->first, returned) << " returned has "  << std::endl;
+		if (returned[binarySearch(it->first, returned)] < it->first)
+			returned.push_back(it->first);
+		else if (returned[binarySearch(it->first, returned)] == it->first)
+			continue;
+		else
+			returned = shiftVector(returned, it->first, binarySearch(it->first, returned));
+		if (index == size && count == 1)
 		{
-			std::cout << "elem : " << it->second << "Needs to be inserted at index : " << binarySearch(it->second, returned) << std::endl;
-			returned = shiftVector(returned, it->second, binarySearch(it->second, returned));
+			std::cout << " int pair elem : " << it->second << "Needs to be inserted at index : " << binarySearch(it->second, returned) << std::endl;
+		std::vector<int>::iterator itt = returned.end();
+		itt--;
+		if (it->second == 2147483647 || it->second == *itt)
+		{
+			index++;
+			continue;
+		}	
+		if (returned[binarySearch(it->second, returned)] < it->second)
+				returned.push_back(it->second);
+			else
+				returned = shiftVector(returned, it->second, binarySearch(it->second, returned));
 		}
 		index++;
-	}
+	}		
+	std::cout << "is My Vector Sorted ???" << std::endl;
 	printVector(returned);
-	// std::cout << "is My Vector Sorted ???" << std::endl;
 	return (returned);
 }
 
@@ -202,26 +193,20 @@ int binarySearch(int value, std::vector<int> myVector)
     if (myVector.size() == 1)
 		return 0;
 	std::vector<int>::iterator it = std::lower_bound(myVector.begin(), myVector.end(), value);
-	if (*it == value)
-		it = std::upper_bound(myVector.begin(), myVector.end(), value);
 	return find(it, myVector);
-	// int pos = (myVector.size() / 2);
-	// if (*it == value)
-	// 	return (-1);
-	// std::cout << "value : " << value << "iterator :: " << *it << std::endl;
-	// if (myVector[pos] == value)
-	// 	return (pos);
-	// else if (myVector[pos] > value)
-	// 	return (binarySearch(value, smallerVector(myVector, 0, pos)));
-	// else
-	// 	return (pos + binarySearch(value, smallerVector(myVector, 1, pos)));
 }
 
 int	find(std::vector<int>::iterator value, std::vector<int> myVector)
 {
-	int i = 0;
+	unsigned long i = 0;
 	for(std::vector<int>::iterator it = myVector.begin(); *it != *value; it++)
+	{
+		if (it == myVector.end())
+			break;
 		i++;
+	}
+	if (i > myVector.size())
+		return (-1);
 	if (myVector[i] != *value)
 		return (-1);
 	return (i);
@@ -229,8 +214,6 @@ int	find(std::vector<int>::iterator value, std::vector<int> myVector)
 
 std::vector<int> shiftVector(std::vector<int> myVec, int value, int pos)
 {
-	// printVector(myVec);
-	// printVector(myVec);
 	myVec.push_back(myVec[myVec.size() - 1]);
 	int size = myVec.size() - 1;
 	for (std::vector<int>::iterator it = myVec.end(); it != myVec.begin(); it--)
@@ -291,11 +274,20 @@ void printVector(std::vector<int> myVec)
 std::vector<int> vectPairToInt(std::vector<std::pair<int, int> > myVec)
 {
 	std::vector<int> returned;
+	std::cout << "Vec pair to int" << std::endl;
 	for (std::vector<std::pair<int, int> >::iterator it = myVec.begin(); it != myVec.end(); it++)
 	{
-		returned.push_back(it->first);
-		returned.push_back(it->second);
-		printVector(returned);
+		if (it->second < it->first)
+		{	
+			returned.push_back(it->second);
+			returned.push_back(it->first);
+		}
+		else
+		{
+			returned.push_back(it->first);	
+			returned.push_back(it->second);
+		}
 	}
+	printVector(returned);
 	return (returned);
 }
