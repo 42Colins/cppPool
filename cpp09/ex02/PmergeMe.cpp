@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/26 17:55:25 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/26 18:32:00 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 
 std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::vector<std::pair<int, int> > oldVect, int i)
 {
-	std::cout << "Cycle number : " << i << " STARTING TO INSERT VALUES !!!!" << std::endl
-			  << std::endl;
+	std::cout << "Cycle number : " << i << " STARTING TO INSERT VALUES !!!!" << std::endl << std::endl;
+	int ind = 0;
 	int index = 1;
 	int count = 0;
 	int size = oldVect.size();
@@ -97,32 +97,34 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 	returned = vectPairToInt(myVector);
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
-		if (it->first == 2147483647)
+		ind = JacobsthallIndex(index);
+		if (oldVect[ind].first == 2147483647)
 		{
 			index++;
 			continue;
 		}
-		std::cout << "pair pair elem : " << it->first << "Needs to be inserted at index : " << binarySearch(it->first, returned) << std::endl;
-		returned = shiftVector(returned, it->first, binarySearch(it->first, returned));
+		std::cout << "pair pair elem : " << oldVect[ind].first << "Needs to be inserted at index : " << binarySearch(oldVect[ind].first, returned) << std::endl;
+		returned = shiftVector(returned, oldVect[ind].first, binarySearch(oldVect[ind].first, returned));
+		std::cout << "Before the if : " << index - 1 << " size : " << size << " count : " << count << std::endl;
 		if (index == size && count == 1)
 		{
-			std::cout << "elem : " << it->second << "Needs to be inserted at index : " << binarySearch(it->second, returned) << std::endl;
-			std::cout << "elem : " << it->second << std::endl;
+			std::cout << "elem : " << oldVect[index].second << "Needs to be inserted at index : " << binarySearch(oldVect[index].second, returned) << std::endl;
+			std::cout << "elem : " << oldVect[ind].second << std::endl;
 			std::vector<int>::iterator itt = returned.end();
 			itt--;
-			if (it->second == 2147483647 || it->second == *itt)
+			if (oldVect[index].second == 2147483647 || oldVect[index].second == *itt)
 			{
 				index++;
 				continue;
 			}
-			if (returned[binarySearch(it->second, returned)] < it->second)
-				returned.push_back(it->second);
+			if (returned[binarySearch(oldVect[index].second, returned)] < oldVect[index].second)
+				returned.push_back(oldVect[index].second);
 			else
-				returned = shiftVector(returned, it->second, binarySearch(it->second, returned));
+				returned = shiftVector(returned, oldVect[index].second, binarySearch(oldVect[index].second, returned));
 		}
 		index++;
 	}
-	std::cout << "After shifting " << *returned.end() << std::endl;
+	std::cout << "After shifting index " << index - 1 << " size : " << size << std::endl;
 	printVector(returned);
 	return (returned);
 }
@@ -182,8 +184,8 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
 		id = JacobsthallIndex(index);
-		std::cout << id << " index : " << index << std::endl;
-		std::cout << "elem : " << oldVect[id].first << "Needs to be inserted at index : " << binarySearch(oldVect[id].first, returned) << " returned has " << std::endl;
+		// std::cout << id << " index : " << index << std::endl;
+		// std::cout << "elem : " << oldVect[id].first << "Needs to be inserted at index : " << binarySearch(oldVect[id].first, returned) << " returned has " << std::endl;
 		if (returned[binarySearch(oldVect[id].first, returned)] < oldVect[id].first)
 			returned.push_back(oldVect[id].first);
 		else if (returned[binarySearch(oldVect[id].first, returned)] == oldVect[id].first)
@@ -193,23 +195,25 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 		}
 		else
 			returned = shiftVector(returned, oldVect[id].first, binarySearch(oldVect[id].first, returned));
+		std::cout << "After shifting index " << index << " size : " << size << " count : " << count << std::endl;
 		if (index - 1 == size && count == 1)
 		{
-			std::cout << " int pair elem : " << oldVect[id].second << "Needs to be inserted at index : " << binarySearch(oldVect[id].second, returned) << std::endl;
+			std::cout << " int pair elem : " << oldVect[index].second << "Needs to be inserted at index : " << binarySearch(oldVect[index].second, returned) << std::endl;
 			std::vector<int>::iterator itt = returned.end();
 			itt--;
-			if (oldVect[id].second == 2147483647 || oldVect[id].second == *itt)
+			if (oldVect[index].second == 2147483647 || oldVect[index].second == *itt)
 			{
 				index++;
 				continue;
 			}
-			if (returned[binarySearch(oldVect[id].second, returned)] < oldVect[id].second)
-				returned.push_back(oldVect[id].second);
+			if (returned[binarySearch(oldVect[index].second, returned)] < oldVect[index].second)
+				returned.push_back(oldVect[index].second);
 			else
-				returned = shiftVector(returned, oldVect[id].second, binarySearch(oldVect[id].second, returned));
+				returned = shiftVector(returned, oldVect[index].second, binarySearch(oldVect[index].second, returned));
 		}
 		index++;
 	}
+	std::cout << "After shifting index " << index - 1 << " size : " << size << std::endl;
 	std::cout << "is My Vector Sorted ???" << std::endl;
 	printVector(returned);
 	return (returned);
