@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/18 14:55:16 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:37:50 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main(int argc, char **argv)
 	finalOne = startSorting(finalOne, myVec, i, argc - 1);
 	std::cout <<  std::endl << "AFTER : " << std::endl << std::endl;
 	printVector(finalOne);
+	// for (int i = 0; i < 25; i++)
+	// 	std::cout << JacobsthallSequence(i) << std::endl;
+	// for (int i = 0; i < 100; i++)
+	// 	std::cout << JacobsthallIndex(i) << std::endl;
 	// std::cout << std::endl <<  "AFTER 1st sort : " << std::endl << std::endl;
 	// myVec = firstSort(myVec);
 }

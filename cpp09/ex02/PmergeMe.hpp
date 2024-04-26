@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/18 14:37:48 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:10:33 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <vector>
 # include <deque>
+# include <math.h>
 # include <string.h>
 # include <stdlib.h>
 
@@ -35,6 +36,8 @@ int binarySearch(int value, std::vector<int> myVector);
 void printVector(std::vector<std::pair<int, int> > myVec);
 void printVector(std::vector<int> myVec);
 
+int JacobsthallSequence(int n);
+int JacobsthallIndex(int n);
 
 std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<int, int> >myVector, int i, unsigned long size);
 
