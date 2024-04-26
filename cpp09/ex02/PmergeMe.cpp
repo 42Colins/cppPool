@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/26 22:59:43 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/27 00:37:25 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 			returned = startSorting(returned, newVect, i + 1, size);
 	}
 	// std::cout << "MYVECTOR SIZE " << myVector.size() << std::endl << std::endl;
-	// printVector(newVect);
+	printVector(newVect);
 	if (returned.size() == 0 && newVect.size() == 1)
 	{
 		returned = insertValues(newVect, myVector, i);
@@ -85,13 +85,14 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::vector<std::pair<int, int> > oldVect, int i)
 {
 	(void) i;
-	// std::cout << "Cycle number : " << i << " STARTING TO INSERT VALUES !!!!" << std::endl << std::endl;
+	std::cout << "pair pair Cycle number : " << i << " STARTING TO INSERT VALUES !!!!" << std::endl << std::endl;
 	int ind = 0;
 	int index = 1;
 	int count = 0;
 	int size = oldVect.size();
-	// printVector(oldVect);
-	if (size == 1 || (((size / 2) % 2 == 1) && ((size / 2) / 2) % 2 == 1))
+	printVector(oldVect);
+	// if (size == 1 || (((size / 2) % 2 == 1) && ((size / 2) / 2) % 2 == 1) || (size / 2) == 1)
+	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
 	// std::cout << "size : " << size << " count : " << count << std::endl;
 	std::vector<int> returned;
@@ -100,9 +101,9 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 	{
 		ind = JacobsthallIndex(index);
 		// std::cout << "ind : " << ind << " size : " << size << std::endl;
-		if (ind >= size)
+		if (ind > size - 1)
 		{
-			while(ind >= size)
+			while(ind > size - 1)
 			{
 				index++;
 				ind = JacobsthallIndex(index);				
@@ -113,12 +114,12 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 			index++;
 			continue;
 		}
-		// std::cout << "pair pair elem : " << oldVect[ind].first << "Needs to be inserted at index : " << binarySearch(oldVect[ind].first, returned) << std::endl;
+		std::cout << "pair pair elem : " << oldVect[ind].first << " Needs to be inserted at index : " << binarySearch(oldVect[ind].first, returned) << std::endl;
 		returned = shiftVector(returned, oldVect[ind].first, binarySearch(oldVect[ind].first, returned));
 		// std::cout << "Before the if : " << index - 1 << " size : " << size << " count : " << count << std::endl;
 		if (ind == size - 1 && count == 1)
 		{
-			// std::cout << "elem : " << oldVect[index].second << "Needs to be inserted at index : " << binarySearch(oldVect[index].second, returned) << std::endl;
+			std::cout << "elem : " << oldVect[index].second << " Needs to be inserted at index : " << binarySearch(oldVect[index].second, returned) << std::endl;
 			// std::cout << "elem : " << oldVect[ind].second << std::endl;
 			std::vector<int>::iterator itt = returned.end();
 			itt--;
@@ -135,7 +136,7 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 		index++;
 	}
 	// std::cout << "After shifting index " << index - 1 << " size : " << size << std::endl;
-	// printVector(returned);
+	printVector(returned);
 	return (returned);
 }
 
@@ -187,39 +188,41 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 	int index = 1;
 	int id = 0;
 	size = oldVect.size();
-	if (size % 2 == 1 || size == 1 || (((size / 2) % 2 == 1) && ((size / 2) / 2) % 2 == 1))
+	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
 	// std::cout << "size : " << size << " " << std::endl;
-	// printVector(oldVect);
-	// std::cout << "We're on cycle number " << i << " count : " << count << " size : " << size << std::endl;
+	printVector(oldVect);
+	std::cout << "int pair We're on cycle number " << i << " count : " << count << " size : " << size << std::endl;
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
 		id = JacobsthallIndex(index);
-		if (id > size)
+		if (id > size - 1)
 		{
-			while(id >= size)
+			while(JacobsthallIndex(index) > size - 1)
 			{
 				index++;
 				id = JacobsthallIndex(index);				
 			}
 		}
 		// std::cout << id << " index : " << index << std::endl;
-		// std::cout << "elem : " << oldVect[id].first << "Needs to be inserted at index : " << binarySearch(oldVect[id].first, returned) << " returned has " << std::endl;
+		std::vector<int>::iterator itt = returned.end();
+		itt--;
+		std::cout << "elem : " << oldVect[id].first << " Needs to be inserted at index : " << binarySearch(oldVect[id].first, returned) << " returned has " << returned[binarySearch(oldVect[id].first, returned)] << std::endl;
 		if (returned[binarySearch(oldVect[id].first, returned)] < oldVect[id].first)
 			returned.push_back(oldVect[id].first);
-		else if (returned[binarySearch(oldVect[id].first, returned)] == oldVect[id].first)
-		{
-			index++;
-			continue;
-		}
+		else if (oldVect[id].first > *itt)
+			returned.push_back(oldVect[id].first);
 		else
 			returned = shiftVector(returned, oldVect[id].first, binarySearch(oldVect[id].first, returned));
+			
+		// {
+		// 	index++;
+		// 	continue;
+		// }
 		// std::cout << "After shifting index " << index << " size : " << size << " id : " << id << std::endl;
 		if (id == size - 1 && count == 1)
 		{
-			// std::cout << " int pair elem : " << oldVect[id].second << "Needs to be inserted at index : " << binarySearch(oldVect[id].second, returned) << std::endl;
-			std::vector<int>::iterator itt = returned.end();
-			itt--;
+			std::cout << " int pair elem : " << oldVect[id].second << "Needs to be inserted at index : " << binarySearch(oldVect[id].second, returned) << std::endl;
 			if (oldVect[id].second == 2147483647 || oldVect[id].second == *itt)
 			{
 				index++;
@@ -234,7 +237,7 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 	}
 	// std::cout << "After shifting index " << index - 1 << " size : " << size << std::endl;
 	// std::cout << "is My Vector Sorted ???" << std::endl;
-	// printVector(returned);
+	printVector(returned);
 	return (returned);
 }
 
