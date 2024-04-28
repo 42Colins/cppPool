@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/26 15:10:33 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/28 16:54:48 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,29 @@ int binarySearch(int value, std::vector<int> myVector);
 void printVector(std::vector<std::pair<int, int> > myVec);
 void printVector(std::vector<int> myVec);
 
+std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<int, int> >myVector, int i, unsigned long size);
+
+std::deque<std::pair<int, int> > filldeque(char **argv, int size);
+std::deque<int> startSorting(std::deque<std::pair<int, int> >myDeque, int i);
+std::deque<std::pair<int, int> > firstSort(std::deque<std::pair<int, int> >myDeque);
+std::deque<std::pair<int, int> > continueSorting(std::deque<std::pair<int, int> >myDeque, int i);
+std::deque<int> insertValues(std::deque<std::pair<int, int> >myDeque, std::deque<std::pair<int, int> >newVect, int i);
+std::deque<int> insertValues(std::deque<int>returned, std::deque<std::pair<int, int> >oldVect, int i, int size);
+std::deque<int> vectPairToInt(std::deque<std::pair<int, int> > myDeque);
+
+std::deque<int> smallerdeque(std::deque<int> myVec, int mode, int pos);
+std::deque<int> shiftdeque(std::deque<int> myVec, int value, int pos);
+int	find(std::deque<int>::iterator value, std::deque<int> myDeque);
+int binarySearch(int value, std::deque<int> myDeque);
+
+void printdeque(std::deque<std::pair<int, int> > myVec);
+void printdeque(std::deque<int> myVec);
+
+std::deque<int> startSorting(std::deque<int> returned, std::deque<std::pair<int, int> >mydeque, int i, unsigned long size);
+
 int JacobsthallSequence(int n);
 int JacobsthallIndex(int n);
 
-std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<int, int> >myVector, int i, unsigned long size);
 
 
 #endif
