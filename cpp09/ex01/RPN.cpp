@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:46:01 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/11 16:37:31 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:16:39 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool parseStack(char *argv, int size)
 		}
 		else if (argv[i] != ' ')
 		{
-			std::cout << "Error with this value : " << argv << std::endl;
+			std::cout << "Error with this value : " << argv[i] << std::endl;
 			return false;
 		}
 	}
