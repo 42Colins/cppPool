@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/28 16:54:48 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:07:42 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <string.h>
 # include <stdlib.h>
+# include <sys/time.h>
 
 std::vector<std::pair<int, int> > fillVector(char **argv, int size);
 std::vector<int> startSorting(std::vector<std::pair<int, int> >myVector, int i);
@@ -53,12 +54,12 @@ int binarySearch(int value, std::deque<int> myDeque);
 
 void printdeque(std::deque<std::pair<int, int> > myVec);
 void printdeque(std::deque<int> myVec);
+void displayContainer(std::vector<int> cont);
+void displayContainer(char **argv, int argc);
 
 std::deque<int> startSorting(std::deque<int> returned, std::deque<std::pair<int, int> >mydeque, int i, unsigned long size);
 
 int JacobsthallSequence(int n);
 int JacobsthallIndex(int n);
-
-
 
 #endif

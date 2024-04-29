@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/28 16:58:38 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:37:43 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ std::vector<int> startSorting(std::vector<int> returned, std::vector<std::pair<i
 		if (newVect.size() > 1)
 			returned = startSorting(returned, newVect, i + 1, size);
 	}
-	printVector(newVect);
+	// printVector(newVect);
 	if (returned.size() == 0 && newVect.size() == 1)
 	{
 		returned = insertValues(newVect, myVector, i);
@@ -87,7 +87,7 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 	int index = 1;
 	int count = 0;
 	int size = oldVect.size();
-	printVector(oldVect);
+	// printVector(oldVect);
 	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
 	std::vector<int> returned;
@@ -125,7 +125,7 @@ std::vector<int> insertValues(std::vector<std::pair<int, int> > myVector, std::v
 		}
 		index++;
 	}
-	printVector(returned);
+	// printVector(returned);
 	return (returned);
 }
 
@@ -138,7 +138,7 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 	size = oldVect.size();
 	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
-	printVector(oldVect);
+	// printVector(oldVect);
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
 		id = JacobsthallIndex(index);
@@ -172,7 +172,7 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 		}
 		index++;
 	}
-	printVector(returned);
+	// printVector(returned);
 	return (returned);
 }
 
@@ -379,7 +379,7 @@ std::deque<int> startSorting(std::deque<int> returned, std::deque<std::pair<int,
 		if (newVect.size() > 1)
 			returned = startSorting(returned, newVect, i + 1, size);
 	}
-	printdeque(newVect);
+	// printdeque(newVect);
 	if (returned.size() == 0 && newVect.size() == 1)
 	{
 		returned = insertValues(newVect, mydeque, i);
@@ -397,7 +397,7 @@ std::deque<int> insertValues(std::deque<std::pair<int, int> > mydeque, std::dequ
 	int index = 1;
 	int count = 0;
 	int size = oldVect.size();
-	printdeque(oldVect);
+	// printdeque(oldVect);
 	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
 	std::deque<int> returned;
@@ -435,7 +435,7 @@ std::deque<int> insertValues(std::deque<std::pair<int, int> > mydeque, std::dequ
 		}
 		index++;
 	}
-	printdeque(returned);
+	// printdeque(returned);
 	return (returned);
 }
 
@@ -448,7 +448,7 @@ std::deque<int> insertValues(std::deque<int> returned, std::deque<std::pair<int,
 	size = oldVect.size();
 	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
-	printdeque(oldVect);
+	// printdeque(oldVect);
 	for (std::deque<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
 		id = JacobsthallIndex(index);
@@ -482,7 +482,7 @@ std::deque<int> insertValues(std::deque<int> returned, std::deque<std::pair<int,
 		}
 		index++;
 	}
-	printdeque(returned);
+	// printdeque(returned);
 	return (returned);
 }
 
