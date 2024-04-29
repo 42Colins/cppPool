@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:44:52 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/10 17:41:31 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:19:37 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int main(int argc, char **argv)
 {
-	(void) argc;
+	if (argc < 2)
+	{
+		std::cout << "Error, could not open this file" << std::endl;
+		return (-1);
+	}
 	(void) argv;
 	std::fstream	dataBase;
 	std::fstream	input;
@@ -26,7 +30,7 @@ int main(int argc, char **argv)
 		std::cout << "Problem opening the database" << std::endl;
 		return 1;
 	}
-	input.open("input.txt", std::fstream::in);
+	input.open(argv[1], std::fstream::in);
 	if (input.fail())
 	{
 		std::cout << "Problem while opening the input file" << std::endl;

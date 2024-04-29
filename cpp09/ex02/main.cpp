@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/29 15:10:33 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:52:46 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,22 @@ int main(int argc, char **argv)
 
 bool parseError(char **argv)
 {
+	int j = 0;
 	int index = 1;
+	int size = 0;
 	while (argv[index])
 	{
-		if ()
+		size = strlen(argv[index]);
+		j = 0;
+		while (j < size)
+		{
+			if (isdigit(argv[index][j]) == 0)
+				return (1);
+			j++;
+		}
+		index++;
 	}
+	return (0);
 }
 
 void displayContainer(std::vector<int> cont)
