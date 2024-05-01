@@ -6,7 +6,7 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/03/29 14:45:46 by cprojean         ###   ########.fr        #
+#    Updated: 2024/05/01 13:15:18 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,4 +39,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean reA first easy exercise is the way to start off on the right foot.
+.PHONY : all clean fclean re

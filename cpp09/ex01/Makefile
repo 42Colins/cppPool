@@ -6,11 +6,11 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/04/10 15:03:50 by cprojean         ###   ########.fr        #
+#    Updated: 2024/05/01 12:38:22 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ReversePolishNotation
+NAME = RPN
 
 CPP	 =	c++ -std=c++98 -g3
 

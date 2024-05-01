@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:46:01 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/29 15:16:39 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:10:21 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 bool parseStack(char *argv, int size)
 {
+	int count = 0;
 	int op = 0;
 	int numb = 0;
 	for (int i = 0; i < size; i++)
 	{
+		if (count < 2 && isOperand(argv[i]) == true)
+		{
+			std::cout << "Error, operand too early in the expression" << std::endl;
+			return false; 
+		}
 		if (isOperand(argv[i]) == true)
 		{
 			op++;
+			count++;
 			continue ;
 		}
 		else if (isNumb(argv[i]) == true)
 		{
 			numb++;
+			count++;
 			continue ;	
 		}
 		else if (argv[i] != ' ')
@@ -67,7 +75,7 @@ std::stack<int> fillStack(char *argv, int size)
 		if (isNumb(argv[i]))
 		{	
 			myStack.push(argv[i] - '0');
-			i++;
+			// i++;
 		}
 		if (isOperand(argv[i]))
 		{	
@@ -98,6 +106,8 @@ int calculate(std::stack<int> *myStack, char c)
 
 void doAddition(std::stack<int> *myStack)
 {
+	if (myStack->size() < 2)
+		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	tmp += myStack->top();
@@ -107,6 +117,8 @@ void doAddition(std::stack<int> *myStack)
 
 void doSubstraction(std::stack<int> *myStack)
 {
+	if (myStack->size() < 2)
+		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	int temp = myStack->top();
@@ -116,6 +128,8 @@ void doSubstraction(std::stack<int> *myStack)
 
 void doMultiplication(std::stack<int> *myStack)
 {
+	if (myStack->size() < 2)
+		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	int temp = myStack->top();
@@ -125,6 +139,8 @@ void doMultiplication(std::stack<int> *myStack)
 
 int doDivision(std::stack<int> *myStack)
 {
+	if (myStack->size() < 2)
+		return (-1);
 	int tmp = myStack->top();
 	if (tmp == 0)
 	{

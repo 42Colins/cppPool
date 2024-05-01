@@ -6,11 +6,11 @@
 #    By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/01 16:36:09 by cprojean          #+#    #+#              #
-#    Updated: 2024/04/12 11:34:49 by cprojean         ###   ########.fr        #
+#    Updated: 2024/05/01 13:14:57 by cprojean         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = WorstSortingAlgorithm
+NAME = PmergeMe
 
 CPP	 =	c++ -std=c++98 -g3
 

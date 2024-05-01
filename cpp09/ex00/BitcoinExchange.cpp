@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/28 13:45:15 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/01 12:37:13 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,12 @@ void	findInData(std::string str, std::map<std::string, double> data, int index, 
 		str = lowerDate(str);
 		if (str.empty())
 		{
-			std::cout << "The year should be in the range 2009-2023" << std::endl;
 			return ;
 		}
 		findInData(str, data, 1, temp);
 		return ;
 	}
-	std::cout << temp << " => " << value << " <==> " << tmp * value << std::endl;
+	std::cout << temp << " => " << value << " <==> " << (long) tmp * value << std::endl;
 }
 
 std::string lowerDate(std::string str)
@@ -84,6 +83,18 @@ std::string lowerDate(std::string str)
 	int	day = atoi(str.substr(8, 10).c_str());
 
 	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (day > 31)
+	{
+		std::cout << "The day should be in the range 01-31" << std::endl;
+		std::string newOne;
+		return (newOne);
+	}
+	if (month > 12)
+	{
+		std::cout << "The month should be in the range 01-12" << std::endl;
+		std::string newOne;
+		return (newOne);
+	}
 	if (day == 1)
 	{
 		if (month == 1)
@@ -113,6 +124,7 @@ std::string lowerDate(std::string str)
 		year = 2022;
 	else if (year < 2009)
 	{
+		std::cout << "The year should be in the range 2009-2023" << std::endl;
 		std::string newOne;
 		return (newOne);
 	}
