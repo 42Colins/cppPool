@@ -79,6 +79,7 @@
         "list": "cpp",
         "map": "cpp",
         "numbers": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "span": "cpp"
     }
 }

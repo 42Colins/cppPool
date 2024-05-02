@@ -6,13 +6,13 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/01 12:37:13 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:23:35 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int	exchange(std::map<std::string, double> data, std::fstream &input)
+int	exchange(std::map<std::string, float> data, std::fstream &input)
 {
 	int index = 0;
 	std::string str;
@@ -42,7 +42,7 @@ int	exchange(std::map<std::string, double> data, std::fstream &input)
 	return (0);
 }
 
-void	findInData(std::string str, std::map<std::string, double> data, int index, std::string temp)
+void	findInData(std::string str, std::map<std::string, float> data, int index, std::string temp)
 {
 	if (index == 0)
 		temp = str;
@@ -72,7 +72,7 @@ void	findInData(std::string str, std::map<std::string, double> data, int index, 
 		findInData(str, data, 1, temp);
 		return ;
 	}
-	std::cout << temp << " => " << value << " <==> " << (long) tmp * value << std::endl;
+	std::cout << temp.substr(0, 10) << " => " << value << " = " << (float) tmp * value << std::endl;
 }
 
 std::string lowerDate(std::string str)
@@ -120,8 +120,8 @@ std::string lowerDate(std::string str)
 		day = day - 1;
 	
 	end :
-	if (year > 2022)
-		year = 2022;
+	if (year > 2023)
+		year = 2023;
 	else if (year < 2009)
 	{
 		std::cout << "The year should be in the range 2009-2023" << std::endl;
@@ -148,7 +148,7 @@ bool	isLeapYear(int year)
 	return (false);
 }
 
-std::map<std::string, double> filldata(std::map<std::string, double> data, std::fstream &dataBase)
+std::map<std::string, float> filldata(std::map<std::string, float> data, std::fstream &dataBase)
 {
 	std::string str;
 	int index = 0;
@@ -156,15 +156,15 @@ std::map<std::string, double> filldata(std::map<std::string, double> data, std::
 	{
 		std::getline(dataBase, str);
 		if (index != 0)
-			data.insert(std::pair<std::string, double>(str.substr(0, 10), strtod(str.substr(11).c_str(), NULL)));
+			data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
 		index++;
 	}
 	return (data);
 }
 
-void printMap(std::map<std::string, double> data)
+void printMap(std::map<std::string, float> data)
 {
-	for (std::map<std::string, double>::iterator it = data.begin(); it != data.end(); it++)
+	for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
 		std::cout << it->first << " - " << it->second << std::setprecision(7) << std::endl;
 }
 

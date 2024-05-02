@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:44:52 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/29 15:19:37 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:18:48 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	(void) argv;
 	std::fstream	dataBase;
 	std::fstream	input;
-	std::map<std::string, double> data; 
+	std::map<std::string, float> data; 
 	
 	dataBase.open("data.csv", std::fstream::in);
 	if (dataBase.fail())

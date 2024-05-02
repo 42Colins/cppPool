@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:15:09 by cprojean          #+#    #+#             */
-/*   Updated: 2024/03/28 13:45:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:18:36 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 std::ostringstream() << std::dec << value)).str()
 
 bool	isLeapYear(int year);
-std::map<std::string, double> filldata(std::map<std::string, double> data, std::fstream &dataBase);
-void printMap(std::map<std::string, double> data);
+std::map<std::string, float> filldata(std::map<std::string, float> data, std::fstream &dataBase);
+void printMap(std::map<std::string, float> data);
 int	checkDate(std::string str);
-int	exchange(std::map<std::string, double> data, std::fstream &input);
-void	findInData(std::string str, std::map<std::string, double> data, int index, std::string temp);
+int	exchange(std::map<std::string, float> data, std::fstream &input);
+void	findInData(std::string str, std::map<std::string, float> data, int index, std::string temp);
 std::string lowerDate(std::string str);
 
 #endif
