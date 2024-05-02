@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/29 15:47:40 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/02 17:53:32 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <vector>
 # include <deque>
 # include <math.h>
@@ -58,6 +59,9 @@ void displayContainer(std::vector<int> cont);
 void displayContainer(char **argv, int argc);
 
 std::deque<int> startSorting(std::deque<int> returned, std::deque<std::pair<int, int> >mydeque, int i, unsigned long size);
+
+int smallerSort(char **argv, int argc);
+
 
 bool parseError(char **argv);
 
