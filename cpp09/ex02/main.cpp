@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/02 17:53:13 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:28:05 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int main(int argc, char **argv)
 	std::vector<std::pair<int, int> > myVec = fillVector(argv, argc - 1);
 	finalOne = startSorting(finalOne, myVec, i, argc - 1);
 	gettimeofday(&end_time, NULL);
-	timeV = (double) (end_time.tv_usec - start_time.tv_usec) / 100000;	
+	timeV = (double) (end_time.tv_usec - start_time.tv_usec);	
 	
 	gettimeofday(&start_time, NULL);
 	std::deque<std::pair<int, int> > myDeque = filldeque(argv, argc - 1);
 	finalDeque = startSorting(finalDeque, myDeque, i, argc - 1);
 	gettimeofday(&end_time, NULL);
-	timeD = (double) (end_time.tv_usec - start_time.tv_usec) / 100000;
+	timeD = (double) (end_time.tv_usec - start_time.tv_usec);
 	if (timeD < 0)
 		timeD *= -1;
 	if (timeV < 0)
@@ -54,8 +54,8 @@ int main(int argc, char **argv)
 	displayContainer(argv, argc - 1);
 	std::cout << "AFTER : ";
 	displayContainer(finalOne);
-	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::setprecision(3) << timeV << " us" << std::endl;
-	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::setprecision(3) << timeD << " us" << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::fixed << std::setprecision(0) << timeV << " us" << std::endl;
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::fixed << std::setprecision(0) << timeD << " us" << std::endl;
 
 }
 

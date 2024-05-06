@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:46:01 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/01 13:10:21 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:54:17 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ bool parseStack(char *argv, int size)
 			return false;
 		}
 	}
+	if (isNumb(argv[size]) == true)
+		return false;
 	if (op != numb - 1)
 		return false;
 	return true;
@@ -84,7 +86,7 @@ std::stack<int> fillStack(char *argv, int size)
 		}
 		i++;
 	}
-	std::cout << "RESULT : " << myStack.top() << std::endl;
+	std::cout << "RESULT : " <<  myStack.top() << std::endl;
 	return myStack;
 }
 

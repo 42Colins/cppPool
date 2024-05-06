@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/06 14:28:55 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:51:16 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 			std::cout << "invalid format for input.txt : " << str << std::endl << "Should be : date | value" << std::endl;
 			return (1);
 		}
+		if (str.size() > 10)
+		{
+			if (isValueError(str) == 1)
+			{
+				std::cout << "Error : bad input => " << str.substr(13) << std::endl;
+				continue ;
+			}
+		}
 		if (checkDate(str) == 1)
 		{
 			index++;
@@ -42,10 +50,23 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 	return (0);
 }
 
+int isValueError(std::string str)
+{
+	// std::cout << str << std::endl;
+	for (unsigned int i = 13; i < str.size(); i++)
+	{
+		// std::cout << str[i] << std::endl;
+		if (isdigit(str[i]) == 0)
+			return (1);
+	}
+	return (0);
+}
+
 void	findInData(std::string str, std::map<std::string, float> data, int index, std::string temp)
 {
 	if (index == 0)
 		temp = str;
+	
 	std::string date = str.substr(0, 10);
 	long err = strtol(str.substr(13, str.size()).c_str(), NULL, 10);
 	(void) err;
@@ -67,31 +88,46 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 		str = lowerDate(str);
 		if (str.empty())
 		{
+			// std::cout << "Error : an unexpected character has been found" << std::endl;
 			return ;
 		}
 		findInData(str, data, 1, temp);
 		return ;
 	}
-	std::cout << temp.substr(0, 10) << " => " << value << " = " << (float) tmp * value << std::endl;
+
+
+	std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
 }
 
 std::string lowerDate(std::string str)
 {
+	std::string null;
 	std::string end = str.substr(10, str.size());
+	std::size_t found = str.substr(0, 4).find_first_of(!"0123456789");
+	if (found != (size_t) -1)
+		return null;
+	found = str.substr(5, 7).find_first_of(!"0123456789");
+	if (found != (size_t) -1)
+		return null;
+	found = str.substr(8, 10).find_first_of(!"0123456789");
+	if (found != std::string::npos)
+		return null;
 	int	year = atoi(str.substr(0, 4).c_str());
 	int	month = atoi(str.substr(5, 7).c_str());
 	int	day = atoi(str.substr(8, 10).c_str());
 
 	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (months[month] < day)
+		day = months[month];
 	if (day > 31)
 	{
-		std::cout << "The day should be in the range 01-31" << std::endl;
+		std::cout << "Error : the day should be in the range 01-31" << std::endl;
 		std::string newOne;
 		return (newOne);
 	}
 	if (month > 12)
 	{
-		std::cout << "The month should be in the range 01-12" << std::endl;
+		std::cout << "Error : the month should be in the range 01-12" << std::endl;
 		std::string newOne;
 		return (newOne);
 	}
@@ -124,7 +160,7 @@ std::string lowerDate(std::string str)
 		year = 2023;
 	else if (year < 2009)
 	{
-		std::cout << "The year should be in the range 2009-2023" << std::endl;
+		std::cout << "Error : the year should be in the range 2009-2023" << std::endl;
 		std::string newOne;
 		return (newOne);
 	}
@@ -177,7 +213,7 @@ int	checkDate(std::string str)
 		return (1);
 	}
 	std::string newstr = str.substr(0, 10);
-	std::string laststr = str.substr(11, 14);
+	std::string laststr = str.substr(11);
 	int	i = 0;
 	while (i < 4)
 	{

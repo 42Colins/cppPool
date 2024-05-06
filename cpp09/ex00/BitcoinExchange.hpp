@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:15:09 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/02 17:18:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:20:23 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 std::ostringstream() << std::dec << value)).str()
 
 bool	isLeapYear(int year);
+int isValueError(std::string str);
 std::map<std::string, float> filldata(std::map<std::string, float> data, std::fstream &dataBase);
 void printMap(std::map<std::string, float> data);
 int	checkDate(std::string str);
