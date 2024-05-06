@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/02 17:23:35 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:28:55 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 				index++;
 				continue ;
 			}
-			std::cout << "invalid format for input.txt : " << str <<  std::endl;
+			std::cout << "invalid format for input.txt : " << str << std::endl << "Should be : date | value" << std::endl;
 			return (1);
 		}
 		if (checkDate(str) == 1)
