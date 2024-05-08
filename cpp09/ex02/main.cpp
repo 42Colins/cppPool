@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/06 15:28:05 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:47:03 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int main(int argc, char **argv)
 	displayContainer(finalOne);
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::fixed << std::setprecision(0) << timeV << " us" << std::endl;
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::fixed << std::setprecision(0) << timeD << " us" << std::endl;
+	
+	// printVector(finalOne);
 
 }
 

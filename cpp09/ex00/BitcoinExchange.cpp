@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/06 17:51:16 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/06 17:57:49 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 
 int isValueError(std::string str)
 {
-	// std::cout << str << std::endl;
 	for (unsigned int i = 13; i < str.size(); i++)
 	{
-		// std::cout << str[i] << std::endl;
-		if (isdigit(str[i]) == 0)
+		if (std::isdigit(str[i]) == 0)
 			return (1);
 	}
 	return (0);

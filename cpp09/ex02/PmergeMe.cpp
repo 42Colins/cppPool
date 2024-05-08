@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/04/29 14:37:43 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:45:38 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 	size = oldVect.size();
 	if (size % 2 == 1 || size == 1 || (size / 2) == 1)
 		count = 1;
-	// printVector(oldVect);
 	for (std::vector<std::pair<int, int> >::iterator it = oldVect.begin(); it != oldVect.end(); it++)
 	{
 		id = JacobsthallIndex(index);
@@ -160,6 +159,8 @@ std::vector<int> insertValues(std::vector<int> returned, std::vector<std::pair<i
 			returned = shiftVector(returned, oldVect[id].first, binarySearch(oldVect[id].first, returned));	
 		if (id == size - 1 && count == 1)
 		{
+			itt = returned.end();
+			itt--;
 			if (oldVect[id].second == 2147483647 || oldVect[id].second == *itt)
 			{
 				index++;
@@ -191,7 +192,8 @@ int binarySearch(int value, std::vector<int> myVector)
 	if (myVector.size() == 1)
 		return 0;
 	std::vector<int>::iterator it = std::lower_bound(myVector.begin(), myVector.end(), value);
-	return find(it, myVector);
+	int found = find(it, myVector);
+	return found;
 }
 
 int find(std::vector<int>::iterator value, std::vector<int> myVector)
@@ -462,6 +464,11 @@ std::deque<int> insertValues(std::deque<int> returned, std::deque<std::pair<int,
 		}
 		std::deque<int>::iterator itt = returned.end();
 		itt--;
+		if ((unsigned int) binarySearch(oldVect[id].first, returned) <= returned.size())
+		{
+			index++;
+			continue ;
+		}
 		if (returned[binarySearch(oldVect[id].first, returned)] < oldVect[id].first)
 			returned.push_back(oldVect[id].first);
 		else if (oldVect[id].first > *itt)
