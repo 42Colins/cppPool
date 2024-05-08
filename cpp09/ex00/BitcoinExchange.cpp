@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/06 17:57:49 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:24:37 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,12 @@ std::string lowerDate(std::string str)
 	int	month = atoi(str.substr(5, 7).c_str());
 	int	day = atoi(str.substr(8, 10).c_str());
 
+	if (month > 12)
+	{
+		std::cout << "Error : the month should be in the range 01-12" << std::endl;
+		std::string newOne;
+		return (newOne);
+	}
 	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	if (months[month] < day)
 		day = months[month];
@@ -123,12 +129,7 @@ std::string lowerDate(std::string str)
 		std::string newOne;
 		return (newOne);
 	}
-	if (month > 12)
-	{
-		std::cout << "Error : the month should be in the range 01-12" << std::endl;
-		std::string newOne;
-		return (newOne);
-	}
+
 	if (day == 1)
 	{
 		if (month == 1)
