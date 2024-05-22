@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:44:52 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/02 17:18:48 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:55:09 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int main(int argc, char **argv)
 	data = filldata(data, dataBase);
 	if (exchange(data, input) == 1)
 		return (1);
+		
+	// printMap(data);
 	return 0;
 }

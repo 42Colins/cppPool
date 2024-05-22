@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/08 18:24:37 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:56:24 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 	}
 	double tmp;
 	tmp = data[str.substr(0, 10)];
+	// std::cout << str.substr(0, 10) << std::endl;
+	if (tmp == 0)
+	{
+		std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
+		return ;
+	}
 	if (!tmp)
 	{
 		str = lowerDate(str);
@@ -114,22 +120,25 @@ std::string lowerDate(std::string str)
 	int	month = atoi(str.substr(5, 7).c_str());
 	int	day = atoi(str.substr(8, 10).c_str());
 
+	std::string newOne;
 	if (month > 12)
 	{
 		std::cout << "Error : the month should be in the range 01-12" << std::endl;
-		std::string newOne;
 		return (newOne);
 	}
 	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	if (months[month] < day)
-		day = months[month];
+	if (day > months[month - 1])
+	{
+		std::cout << "Error : the date doesn't exist" << std::endl;
+		return (newOne);
+	}
+	if (months[month - 1] < day)
+		day = months[month - 1];
 	if (day > 31)
 	{
 		std::cout << "Error : the day should be in the range 01-31" << std::endl;
-		std::string newOne;
 		return (newOne);
 	}
-
 	if (day == 1)
 	{
 		if (month == 1)
@@ -143,7 +152,7 @@ std::string lowerDate(std::string str)
 		{
 			if (isLeapYear(year))
 			{
-				day = 29;
+				day = 28;
 				month = 2;
 				goto end;
 			}
@@ -155,6 +164,7 @@ std::string lowerDate(std::string str)
 		day = day - 1;
 	
 	end :
+	// std::cout << year << " " << month << " "  << day << std::endl;
 	if (year > 2023)
 		year = 2023;
 	else if (year < 2009)
@@ -191,7 +201,8 @@ std::map<std::string, float> filldata(std::map<std::string, float> data, std::fs
 	{
 		std::getline(dataBase, str);
 		if (index != 0)
-			data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
+			data[str.substr(0, 10)] = strtof(str.substr(11).c_str(), NULL);
+			// data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
 		index++;
 	}
 	return (data);

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/22 13:15:57 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:33:10 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <sys/time.h>
+# include <cerrno>
 
 std::vector<std::pair<int, int> > fillVector(char **argv, int size);
 std::vector<int> startSorting(std::vector<std::pair<int, int> >myVector, int i);

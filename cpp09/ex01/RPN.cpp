@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 13:46:01 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/06 17:54:17 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:28:14 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ std::stack<int> fillStack(char *argv, int size)
 
 int calculate(std::stack<int> *myStack, char c)
 {
+	if (myStack->size() < 2)
+	{
+		std::cout << "An error occured with your inputs" << std::endl;	
+		return (-1);
+	}
 	if (c == '+')
 		doAddition(myStack);
 	else if (c == '-')
@@ -108,8 +113,6 @@ int calculate(std::stack<int> *myStack, char c)
 
 void doAddition(std::stack<int> *myStack)
 {
-	if (myStack->size() < 2)
-		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	tmp += myStack->top();
@@ -119,8 +122,6 @@ void doAddition(std::stack<int> *myStack)
 
 void doSubstraction(std::stack<int> *myStack)
 {
-	if (myStack->size() < 2)
-		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	int temp = myStack->top();
@@ -130,8 +131,6 @@ void doSubstraction(std::stack<int> *myStack)
 
 void doMultiplication(std::stack<int> *myStack)
 {
-	if (myStack->size() < 2)
-		return ;
 	int tmp = myStack->top();
 	myStack->pop();
 	int temp = myStack->top();
@@ -141,8 +140,6 @@ void doMultiplication(std::stack<int> *myStack)
 
 int doDivision(std::stack<int> *myStack)
 {
-	if (myStack->size() < 2)
-		return (-1);
 	int tmp = myStack->top();
 	if (tmp == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/22 13:28:29 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:34:30 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 std::vector<std::pair<int, int> > fillVector(char **argv, int size)
 {
+	int fval;
+	int sval;
 	int j = 1;
 	int count = 0;
 	if (size % 2 != 0)
@@ -27,7 +29,21 @@ std::vector<std::pair<int, int> > fillVector(char **argv, int size)
 	{
 		if (i == 0 || i % 2 == 0)
 		{
-			Benoit = std::make_pair(atoi(argv[j]), atoi(argv[j + 1]));
+			fval = strtod(argv[j], NULL);
+			if (errno == ERANGE)
+			{
+				std::cout << "An error occured with your values" << std::endl;
+				std::vector<std::pair<int, int> > empty;
+				return (empty);
+			}
+			sval = strtod(argv[j + 1], NULL);
+			if (errno == ERANGE)
+			{
+				std::cout << "An error occured with your values" << std::endl;
+				std::vector<std::pair<int, int> > empty;
+				return (empty);
+			}
+			Benoit = std::make_pair(fval, sval);
 			newVec.push_back(Benoit);
 		}
 		j++;

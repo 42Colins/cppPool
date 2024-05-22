@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/08 16:47:03 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:35:36 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main(int argc, char **argv)
 	std::deque<int> finalDeque;
 	gettimeofday(&start_time, NULL);
 	std::vector<std::pair<int, int> > myVec = fillVector(argv, argc - 1);
+	if (myVec.empty())
+		return (0);
 	finalOne = startSorting(finalOne, myVec, i, argc - 1);
 	gettimeofday(&end_time, NULL);
 	timeV = (double) (end_time.tv_usec - start_time.tv_usec);	
@@ -57,7 +59,7 @@ int main(int argc, char **argv)
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::fixed << std::setprecision(0) << timeV << " us" << std::endl;
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::fixed << std::setprecision(0) << timeD << " us" << std::endl;
 	
-	// printVector(finalOne);
+	printVector(finalOne);
 
 }
 
