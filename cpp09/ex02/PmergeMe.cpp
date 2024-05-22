@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:05 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/08 16:45:38 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:28:29 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,14 +192,18 @@ int binarySearch(int value, std::vector<int> myVector)
 	if (myVector.size() == 1)
 		return 0;
 	std::vector<int>::iterator it = std::lower_bound(myVector.begin(), myVector.end(), value);
-	int found = find(it, myVector);
+	if (it == myVector.end())
+		return (0);
+	int itval = *it;
+	int found = find(itval, myVector);
 	return found;
 }
 
-int find(std::vector<int>::iterator value, std::vector<int> myVector)
+int find(int value, std::vector<int> myVector)
 {
 	unsigned long i = 0;
-	for (std::vector<int>::iterator it = myVector.begin(); *it != *value; it++)
+	int val = value;
+	for (std::vector<int>::iterator it = myVector.begin(); *it != val; it++)
 	{
 		if (it == myVector.end())
 			break;
@@ -207,7 +211,7 @@ int find(std::vector<int>::iterator value, std::vector<int> myVector)
 	}
 	if (i > myVector.size())
 		return (-1);
-	if (myVector[i] != *value)
+	if (myVector[i] != val)
 		return (-1);
 	return (i);
 }

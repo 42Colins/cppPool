@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:08 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/02 17:53:32 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:15:57 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ std::vector<int> vectPairToInt(std::vector<std::pair<int, int> > myVector);
 
 std::vector<int> smallerVector(std::vector<int> myVec, int mode, int pos);
 std::vector<int> shiftVector(std::vector<int> myVec, int value, int pos);
+
 int	find(std::vector<int>::iterator value, std::vector<int> myVector);
+int find(int value, std::vector<int> myVector);
+
 int binarySearch(int value, std::vector<int> myVector);
 
 void printVector(std::vector<std::pair<int, int> > myVec);
