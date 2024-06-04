@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/22 17:56:24 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/06/04 18:34:26 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,18 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 
 int isValueError(std::string str)
 {
+	int index = 0;
 	for (unsigned int i = 13; i < str.size(); i++)
 	{
+		index = 0;
 		if (std::isdigit(str[i]) == 0)
-			return (1);
+		{	
+			if (str[i] == '.' && index != 0)
+			{
+				return (1);
+			}
+			index++;
+		}
 	}
 	return (0);
 }
@@ -79,15 +87,11 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 		std::cout << "Error : " << value << " the value should be in the range 0-1000" << std::endl;
 		return ;
 	}
-	double tmp;
+	float tmp = -1;
 	tmp = data[str.substr(0, 10)];
 	// std::cout << str.substr(0, 10) << std::endl;
-	if (tmp == 0)
-	{
-		std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
-		return ;
-	}
-	if (!tmp)
+	std::cout << tmp << std::endl;
+	if (!data[str.substr(0, 10)])
 	{
 		str = lowerDate(str);
 		if (str.empty())
@@ -98,7 +102,11 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 		findInData(str, data, 1, temp);
 		return ;
 	}
-
+	if (tmp == 0)
+	{
+		std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
+		return ;
+	}
 
 	std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
 }
@@ -169,6 +177,7 @@ std::string lowerDate(std::string str)
 		year = 2023;
 	else if (year < 2009)
 	{
+		std::cout << year << std::endl;
 		std::cout << "Error : the year should be in the range 2009-2023" << std::endl;
 		std::string newOne;
 		return (newOne);
@@ -201,8 +210,8 @@ std::map<std::string, float> filldata(std::map<std::string, float> data, std::fs
 	{
 		std::getline(dataBase, str);
 		if (index != 0)
-			data[str.substr(0, 10)] = strtof(str.substr(11).c_str(), NULL);
-			// data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
+			data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
+		std::cout << strtof(str.substr(11).c_str(), NULL) << std::endl;
 		index++;
 	}
 	return (data);
