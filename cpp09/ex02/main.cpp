@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/05/22 18:35:36 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:32:46 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,14 @@ bool parseError(char **argv)
 	int j = 0;
 	int index = 1;
 	int size = 0;
+	long err;
 	while (argv[index])
 	{
 		size = strlen(argv[index]);
 		j = 0;
+		err = strtol(argv[index], NULL, 10);
+		if (errno = ERANGE)
+			return (1);
 		while (j < size)
 		{
 			if (isdigit(argv[index][j]) == 0)
