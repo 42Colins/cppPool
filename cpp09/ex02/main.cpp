@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:19:10 by cprojean          #+#    #+#             */
-/*   Updated: 2024/06/04 15:32:46 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:37:47 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int main(int argc, char **argv)
 	
 	if (argc == 3)
 		return smallerSort(argv, argc);
-	std::vector<int> finalOne;
-	std::deque<int> finalDeque;
+	std::vector<long> finalOne;
+	std::deque<long> finalDeque;
 	gettimeofday(&start_time, NULL);
-	std::vector<std::pair<int, int> > myVec = fillVector(argv, argc - 1);
+	std::vector<std::pair<long, long> > myVec = fillVector(argv, argc - 1);
 	if (myVec.empty())
 		return (0);
 	finalOne = startSorting(finalOne, myVec, i, argc - 1);
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 	timeV = (double) (end_time.tv_usec - start_time.tv_usec);	
 	
 	gettimeofday(&start_time, NULL);
-	std::deque<std::pair<int, int> > myDeque = filldeque(argv, argc - 1);
+	std::deque<std::pair<long, long> > myDeque = filldeque(argv, argc - 1);
 	finalDeque = startSorting(finalDeque, myDeque, i, argc - 1);
 	gettimeofday(&end_time, NULL);
 	timeD = (double) (end_time.tv_usec - start_time.tv_usec);
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << std::fixed << std::setprecision(0) << timeV << " us" << std::endl;
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::fixed << std::setprecision(0) << timeD << " us" << std::endl;
 	
-	printVector(finalOne);
+	// printVector(finalOne);
 
 }
 
@@ -74,7 +74,7 @@ bool parseError(char **argv)
 		size = strlen(argv[index]);
 		j = 0;
 		err = strtol(argv[index], NULL, 10);
-		if (errno = ERANGE)
+		if (err > INT_MAX)
 			return (1);
 		while (j < size)
 		{
@@ -87,12 +87,12 @@ bool parseError(char **argv)
 	return (0);
 }
 
-void displayContainer(std::vector<int> cont)
+void displayContainer(std::vector<long> cont)
 {
 	if (cont.size() > 5)
 	{
 		int index = 0;
-		for(std::vector<int>::iterator it = cont.begin(); it != cont.end(); it++)
+		for(std::vector<long>::iterator it = cont.begin(); it != cont.end(); it++)
 		{
 			if (index == 4)
 			{
@@ -103,7 +103,7 @@ void displayContainer(std::vector<int> cont)
 			index++;
 		}
 	}
-	for(std::vector<int>::iterator it = cont.begin(); it != cont.end(); it++)
+	for(std::vector<long>::iterator it = cont.begin(); it != cont.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 }
