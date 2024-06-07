@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/06/04 18:34:26 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/06/07 16:03:41 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,13 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 int isValueError(std::string str)
 {
 	int index = 0;
+	int jdex = 0;
 	for (unsigned int i = 13; i < str.size(); i++)
 	{
 		index = 0;
-		if (std::isdigit(str[i]) == 0)
-		{	
-			if (str[i] == '.' && index != 0)
-			{
-				return (1);
-			}
-			index++;
-		}
+		jdex = 0;
+		if (std::isdigit(str[i]) == 0 && str[i] != '.')
+			return (1);
 	}
 	return (0);
 }
@@ -72,7 +68,6 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 {
 	if (index == 0)
 		temp = str;
-	
 	std::string date = str.substr(0, 10);
 	long err = strtol(str.substr(13, str.size()).c_str(), NULL, 10);
 	(void) err;
@@ -89,8 +84,6 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 	}
 	float tmp = -1;
 	tmp = data[str.substr(0, 10)];
-	// std::cout << str.substr(0, 10) << std::endl;
-	std::cout << tmp << std::endl;
 	if (!data[str.substr(0, 10)])
 	{
 		str = lowerDate(str);
@@ -102,12 +95,11 @@ void	findInData(std::string str, std::map<std::string, float> data, int index, s
 		findInData(str, data, 1, temp);
 		return ;
 	}
-	if (tmp == 0)
+	if (tmp == -1)
 	{
-		std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
+		std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(0 * value == static_cast<int>(0 * value) ? 0 : 2) << (float) 0 * value << std::endl;
 		return ;
 	}
-
 	std::cout << temp.substr(0, 10) << " => " << value << " = " << std::fixed << std::setprecision(tmp * value == static_cast<int>(tmp * value) ? 0 : 2) << (float) tmp * value << std::endl;
 }
 
@@ -128,18 +120,21 @@ std::string lowerDate(std::string str)
 	int	month = atoi(str.substr(5, 7).c_str());
 	int	day = atoi(str.substr(8, 10).c_str());
 
+	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	std::string newOne;
+	if (month == 2 && day == 29 && isLeapYear(year) == true)
+		goto next;
 	if (month > 12)
 	{
 		std::cout << "Error : the month should be in the range 01-12" << std::endl;
 		return (newOne);
 	}
-	int months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	if (day > months[month - 1])
 	{
 		std::cout << "Error : the date doesn't exist" << std::endl;
 		return (newOne);
 	}
+		
 	if (months[month - 1] < day)
 		day = months[month - 1];
 	if (day > 31)
@@ -147,6 +142,8 @@ std::string lowerDate(std::string str)
 		std::cout << "Error : the day should be in the range 01-31" << std::endl;
 		return (newOne);
 	}
+	next :
+
 	if (day == 1)
 	{
 		if (month == 1)
@@ -171,8 +168,8 @@ std::string lowerDate(std::string str)
 	else
 		day = day - 1;
 	
+	
 	end :
-	// std::cout << year << " " << month << " "  << day << std::endl;
 	if (year > 2023)
 		year = 2023;
 	else if (year < 2009)
@@ -210,8 +207,12 @@ std::map<std::string, float> filldata(std::map<std::string, float> data, std::fs
 	{
 		std::getline(dataBase, str);
 		if (index != 0)
-			data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
-		std::cout << strtof(str.substr(11).c_str(), NULL) << std::endl;
+		{
+			if (strtof(str.substr(11).c_str(), NULL) == 0)
+				data.insert(std::pair<std::string, float>(str.substr(0, 10), -1));
+			else
+				data.insert(std::pair<std::string, float>(str.substr(0, 10), strtof(str.substr(11).c_str(), NULL)));
+		}
 		index++;
 	}
 	return (data);
