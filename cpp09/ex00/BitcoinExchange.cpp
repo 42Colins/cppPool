@@ -6,7 +6,7 @@
 /*   By: cprojean <cprojean@42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:41:04 by cprojean          #+#    #+#             */
-/*   Updated: 2024/06/07 16:03:41 by cprojean         ###   ########.fr       */
+/*   Updated: 2024/06/10 15:27:09 by cprojean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 				std::cout << "Error : bad input => " << str.substr(13) << std::endl;
 				continue ;
 			}
+			if (isTooMuchDots(str.substr(13)) == 1)
+			{
+				std::cout << "Error : bad input => " << str.substr(13) << std::endl;
+				continue ;
+			}
 		}
 		if (checkDate(str) == 1)
 		{
@@ -48,6 +53,29 @@ int	exchange(std::map<std::string, float> data, std::fstream &input)
 		index++;
 	}
 	return (0);
+}
+
+int isTooMuchDots(std::string str)
+{
+	int index = 0;
+	int jdex = 0;
+	int pos = -1;
+	while (str[index])
+	{
+		if (str[index] == '.')
+		{
+			if (index == 0)
+				return (true);
+			jdex++;
+			pos = index;
+		}
+		index++;
+	}
+	if (pos + 1 == (int) str.size())
+		return (true);
+	if (jdex > 1)
+		return (true);
+	return (false);
 }
 
 int isValueError(std::string str)
